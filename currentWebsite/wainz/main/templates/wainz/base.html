@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Water Action Initiative NZ{{title}}</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Water Action Initiative New Zealand">
+    <meta name="author" content="wainz">
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+
+    <link rel="shortcut icon" href="{{ STATIC_URL }}images/logo.ico" />
+    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="{{ STATIC_URL }}site.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 40px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+  <script style="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script style="text/javascript" src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
+  <script style="text/javascript"> 
+    $(document).ready(function() { 
+        $(".dropdown-toggle").dropdown()
+    });
+  </script>
+
+  {% block page_specific_javascript %}
+
+  {% endblock %}
+  </head>
+
+  <body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="{% url wainz.views.composite %}">WAI NZ</a>
+          {% if user.is_authenticated %}
+ 
+          <div class="dropdown pull-right">
+            <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+              <span class="icon-user"></span> {{ user }}
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="{% url wainz.views.images_for_user user%}">View your images</a></li>
+              {% if user.is_staff%}
+              <li><a href="{% url wainz.views.approve_images %}">Approve Images</a></li>
+              <li><a href="{% url admin:index %}">Admin Panel</a></li>
+              {% endif %}
+              <li><a href="{% url wainz.views.logout %}?next={{current_url}}">Sign Out</a></li>
+            </ul>
+
+          </div> 
+
+          {% else %}
+          <div class="dropdown pull-right">
+          <a class='login-button btn btn-success' href='https://www.wainz.org.nz{% url registration_register %}'>Register</a>
+          {% if request.is_secure %}
+          <a class="login-button dropdown-toggle btn" data-toggle="dropdown" href="#">
+              <span>Login</span>
+              <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu">
+              <form action="{% url django.contrib.auth.views.login %}" method="post" >
+                {% csrf_token %}
+                <fieldset class="textbox" style="padding:10px">
+                  <input class="login textin" type="text" placeholder="Username" name="username"/>
+                  <input class="login textin" type="password" placeholder="Password" name="password"/>
+                  <input class="login btn-success" type="submit" value="Log In" />
+                </fieldset>
+                <input type="hidden" name="next" value="{% url wainz.views.composite %}" />
+              </form>
+            </div>
+          {% else %}
+          <a class="login-button btn" href="https://www.wainz.org.nz{% url django.contrib.auth.views.login %}">Login</a>
+          {% endif %}
+          </div>
+          {% endif %}
+
+          <div class='nav-collapse collapse'>
+            <ul class='nav'>
+            {% for tab in tabs %}
+              {% if tab.active %}
+                <li class="active"><a href="{{ tab.path }}">{{ tab.name }}</a></li>
+              {% else %}
+                <li><a href="{{ tab.path }}">{{ tab.name }}</a></li>
+              {% endif %}
+            {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main container background-color1" style='min-width:1100px'>
+    <div>
+      {% block container_content %}
+
+      {% endblock %}
+    </div>
+    <footer style='margin-top:10px;'>
+      &copy; 2012 WAI NZ &amp; River Dog
+    </footer>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,47 @@
+{% extends "wainz/base.html" %}
+
+{% block container_content %}
+
+<div class='well background-color2 gmaps2' style="padding-bottom: 35px;">
+  <hr />
+      <div class="row">
+        <div class='span8'>&nbsp;</div>
+        <div class='map-container' style='position:relative'>
+          <div class="span8 gmaps2" id="map_canvas"> </div>
+        </div>
+		<div id="csrf">{% csrf_token %}</div>
+        {{search_form}}
+      </div>
+      <hr />
+      <br />
+      <br />
+
+ </div>   
+{% endblock %}
+
+{%block page_specific_javascript %}
+  <script type="text/javascript"
+      src="//maps.googleapis.com/maps/api/js?key=AIzaSyAwwi-pYumS3O9OxbscA3pbDb_MPuWA6Eo&amp;sensor=true">
+  </script>
+
+  <script type="text/javascript">
+    {% autoescape off %} 
+        var points = {{latLngs}}
+        var markers = []
+        
+        var tagTypeaheadSource = [
+            {% for tag in typeAheadTags %}
+                "{{tag.tag_text}}", 
+            {% endfor %}
+        ]
+
+    {% endautoescape %} 
+  </script>
+
+  <script type="text/javascript" src="{{ STATIC_URL }}js/map_display.js"></script>
+
+  <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap-datepicker.js"></script>
+  <link rel="stylesheet" href="{{ STATIC_URL }}datepicker.css" >
+  <script type="text/javascript" src="{{ STATIC_URL }}js/map_filters.js">  
+  </script>
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "wainz/base.html" %}
+
+{% load wainz_tags %}
+
+{% block container_content %}
+
+  <header>
+  <div class='row-fluid background-color2'>
+    <div class='span3'>
+      <img height="150" src="{{ STATIC_URL }}images/logo2.jpg" alt="Wainz Logo" />
+    </div>
+    <div class='span6'>
+      <br /><br /><p style="line-height:150%; font-size:14px;"><b><i>WAI NZ is a national grassroots organisation that aims to reduce freshwater pollution by using technology to empower the public to be kaitiaki (the guardians) of our waterways. We are tackling freshwater issues by giving the public the power to record and report on pollution or enhancement of freshwater from anywhere in the country. In collaboration with Victoria University we continue to research and develop cutting edge technology for the monitoring of freshwater resources. </i></b></p>
+    </div>
+    <div class='span3'>
+      <img height="130" style="float:right;margin:30px 30px 0px 0px;" src="{{ STATIC_URL }}images/riverwatch.jpg" alt="Riverwatch Logo" />
+    </div>
+  </div>
+  <hr />
+  </header>
+
+  <div class="container-fluid"> 
+    <div class='row-fluid'>
+      <div class='span2 well mainrow2'>
+        <ul class="nav nav-list">
+        <li class="nav-header" style='font-size: 14px'>Navigation</li>
+        <li><hr /></li>
+        <li class="active"><a href="{% url wainz.views.composite %}"><i class="icon-home icon-white"></i> Home</a></li>
+        <li><a href="{% url wainz.views.facts %}"><i class="icon-info-sign"></i> Facts</a></li>
+        <li><a href="{% url wainz.views.pollution %}"><i class="icon-map-marker"></i> Pollution</a></li>
+        <!--<li><a href="{% url wainz.views.reports %}"><i class="icon-list-alt"></i> Reports</a></li>-->
+        <li><a href="{% url wainz.views.imggallery %}"><i class="icon-camera"></i> Gallery</a></li>
+        <li><a href="{% url wainz.views.uav %}"><i class="icon-facetime-video"></i> UAV Videos</a></li>
+        <li><a href="{% url wainz.views.media %}"><i class="icon-globe"></i> Media</a></li>
+        <li><a href="{% url wainz.views.resources %}"><i class="icon-eye-open"></i> Resources</a></li>
+        <li><a href="{% url wainz.views.mobileapps %}"><i class="icon-signal"></i> Mobile Apps</a></li>
+        <li><a href="{% url wainz.views.howtohelp %}"><i class="icon-gift"></i> How to help</a></li>
+        <li><br /><a href='http://www.facebook.com/WaiNewZealand'><img style="padding-left: 10px;" src="{{ STATIC_URL }}images/facebook.jpg" width='80' alt="Facebook Logo" /></a></li>
+        <li><br /><a href='http://www.twitter.com/wai_nz'><img style="padding-left: 10px;" src="{{ STATIC_URL }}images/twitter.jpg" width='80' alt="Twitter Logo" /></a></li>
+        </ul>
+      </div>
+      <div class='span6'>
+        <div class='gen-text2' style='text-align:center; margin:9px 0;'>Track our pollution submissions with the <a href="{% url wainz.views.maps %}"><b><i>Image Map</i></b></a> below</div>
+
+        <div class='map-container' style='position:relative'> <div class="span12 gmaps1" id="map_canvas"> </div> </div>
+      </div>
+
+      <div class='span4'>
+        <h3>Submit your photos</h3>
+        <hr />
+        <div class='gen-text2'>
+            Users can submit photos on the good the bad and the ugly freshwater management in your area or places you travel.<br />
+          <a href="{% url wainz.views.facts %}" title="The facts about Freshwater" target="_blank"><img class='border' style="float:right;" src="{{ STATIC_URL }}images/cowsinriver.jpg" alt="Cow in river" /></a> <br />
+          To upload a photo click <a href="{% url wainz.views.submit %}">'Submit'</a> at the top of the page.
+          You can view other photos on the map to see what is going on around NZ.
+          All submissions are vetted before being made public.<br /><br />
+
+          We have also created easy to use mobile Apps to instantly submit your photos.<br /><br />
+
+	<a href="https://itunes.apple.com/nz/app/riverwatch/id674422713?mt=8&amp;uo=4" target="itunes_store"><img src="{{ STATIC_URL }}images/badge_appstore-lrg.gif" alt="Riverwatch for iPhone" style="border: 0;"/></a>
+	<a href="https://itunes.apple.com/nz/app/riverwatch/id674422713?mt=8&amp;uo=4" target="itunes_store">Riverwatch for iPhone</a><br /><br />
+    <a href="https://play.google.com/store/apps/details?id=nz.co.android.cowseye2"><img alt="Riverwatch for Android" src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png" /></a>
+    <a href="https://play.google.com/store/apps/details?id=nz.co.android.cowseye2">Riverwatch for Android</a>
+        </div>
+      </div>
+    </div>
+
+    <div class='row-fluid'>
+      <div class='span12 well'>
+        <h3>The Inspiration</h3>
+        <hr />
+        <iframe style="float:right; margin-left:20px border-width:0;" src="//player.vimeo.com/video/16829706?title=0&amp;byline=0&amp;portrait=0" width="330" height="185" allowFullScreen ></iframe>
+        <p class="gen-text2">WAI NZ was formed in 2012 when people from all over NZ became inspired to collaborate in efforts to monitor and report on freshwater pollution.<br /><br />
+        The inspiration came from watching the documentary film River Dog (multi award winning NZ doco), a story of one man's struggle to save the river he lives by. You can view the trailer to River Dog here.
+        </p>
+        <br style='clear:both'>
+        <hr />
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block page_specific_javascript %}
+  <script type="text/javascript"
+      src="//maps.googleapis.com/maps/api/js?key=AIzaSyAwwi-pYumS3O9OxbscA3pbDb_MPuWA6Eo&amp;sensor=true">
+  </script>
+
+  <script type="text/javascript">
+    {% autoescape off %} 
+        var points = {{latLngs}}
+        var markers = []
+
+        var tagTypeaheadSource = [
+            {% for tag in typeAheadTags %}
+                "{{tag.tag_text}}", 
+            {% endfor %}
+        ]
+
+    {% endautoescape %}
+  </script>
+
+  <script type="text/javascript" src="{{ STATIC_URL }}js/map_display.js"></script>
+{% endblock %}
