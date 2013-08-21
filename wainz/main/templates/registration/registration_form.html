@@ -1,0 +1,15 @@
+{% extends 'wainz/base.html' %}
+
+{% block container_content %}
+
+<h1 class='centered'>
+    Please provide the following information to register
+</h1>
+
+<div style='background-color:#556; height:3px; margin-bottom:4em'></div>
+<form class='centered' method="post">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
+
+{% endblock %}

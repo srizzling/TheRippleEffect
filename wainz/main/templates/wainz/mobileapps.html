@@ -1,0 +1,58 @@
+{% extends "wainz/base.html" %}
+
+{% block container_content %}
+
+<header>
+  <div class='row-fluid background-color2'>
+    <div class='span3'>
+      <img height="150" src="{{ STATIC_URL }}images/logo2.jpg" alt="Wainz Logo" /> 
+    </div>
+    <div class='span6'>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <hr />
+      <h2>Riverwatch app for iPhone and Android</h2>
+    </div>
+    <div class='span3'>
+      <img height="130" style="float:right;margin:30px 30px 0px 0px;" src="{{ STATIC_URL }}images/riverwatch.jpg" alt="Riverwatch Logo" />
+    </div>
+  </div>
+ <hr />
+</header>
+
+<div class="container-fluid"> 
+    <div class='row-fluid'>
+	<div class='span2 well mainrow2'>
+	    <ul class="nav nav-list">
+	    <li class="nav-header" style='font-size: 14px'>Navigation</li>
+	    <li><hr /></li>
+	    <li><a href="{% url wainz.views.composite %}"><i class="icon-home"></i> Home</a></li>
+	    <li><a href="{% url wainz.views.facts %}"><i class="icon-info-sign"></i> Facts</a></li>
+	    <li><a href="{% url wainz.views.pollution %}"><i class="icon-map-marker"></i> Pollution</a></li>
+	    <!--<li><a href="{% url wainz.views.reports %}"><i class="icon-list-alt"></i> Reports</a></li>-->
+	    <li><a href="{% url wainz.views.imggallery %}"><i class="icon-camera"></i> Gallery</a></li>
+        <li><a href="{% url wainz.views.uav %}"><i class="icon-facetime-video"></i> UAV Videos</a></li>
+	    <li><a href="{% url wainz.views.media %}"><i class="icon-globe"></i> Media</a></li>
+	    <li><a href="{% url wainz.views.resources %}"><i class="icon-eye-open"></i> Resources</a></li>
+	    <li class="active"><a href="{% url wainz.views.mobileapps %}"><i class="icon-signal icon-white"></i> Mobile Apps</a></li>
+	    <li><a href="{% url wainz.views.howtohelp %}"><i class="icon-gift"></i> How to help</a></li>
+	    </ul>
+	</div>
+
+    <br /> 
+    <div class='span6 gen-text2'>
+	
+	<a href="https://itunes.apple.com/nz/app/riverwatch/id674422713?mt=8&amp;uo=4" target="itunes_store"><img src="{{ STATIC_URL }}images/badge_appstore-lrg.gif" alt="Riverwatch for iPhone" style="border: 0;"/></a>
+	<a href="https://itunes.apple.com/nz/app/riverwatch/id674422713?mt=8&amp;uo=4" target="itunes_store">Download Riverwatch for iPhone</a>
+	<br /><br />
+    <a href="https://play.google.com/store/apps/details?id=nz.co.android.cowseye2"><img alt="Riverwatch for Android" src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png" /></a>
+    <a href="https://play.google.com/store/apps/details?id=nz.co.android.cowseye2">Riverwatch for Android</a>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
+

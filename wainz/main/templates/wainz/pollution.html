@@ -1,0 +1,166 @@
+{% extends "wainz/base.html" %}
+
+{% block container_content %}
+
+<header>
+  <div class='row-fluid background-color2'>
+    <div class='span3'>
+      <img height="150" src="{{ STATIC_URL }}images/logo2.jpg" alt="Wainz Logo" /> 
+    </div>
+    <div class='span6'>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <hr />
+      <h2>A quick guide to water pollution</h2>
+    </div>
+    <div class='span3'>
+      <img height="130" style="float:right;margin:30px 30px 0px 0px;" src="{{ STATIC_URL }}images/riverwatch.jpg" alt="Riverwatch Logo" />
+    </div>
+  </div>
+ <hr />
+</header>
+
+<div class="container-fluid"> 
+    <div class='row-fluid'>
+	<div class='span2 well mainrow2'>
+	    <ul class="nav nav-list">
+	    <li class="nav-header" style='font-size: 14px'>Navigation</li>
+	    <li><hr /></li>
+	    <li><a href="{% url wainz.views.composite %}"><i class="icon-home"></i> Home</a></li>
+	    <li><a href="{% url wainz.views.facts %}"><i class="icon-info-sign"></i> Facts</a></li>
+	    <li class="active"><a href="{% url wainz.views.pollution %}"><i class="icon-map-marker icon-white"></i> Pollution</a></li>
+	    <!--<li><a href="{% url wainz.views.reports %}"><i class="icon-list-alt"></i> Reports</a></li>-->
+	    <li><a href="{% url wainz.views.imggallery %}"><i class="icon-camera"></i> Gallery</a></li>
+        <li><a href="{% url wainz.views.uav %}"><i class="icon-facetime-video"></i> UAV Videos</a></li>
+	    <li><a href="{% url wainz.views.media %}"><i class="icon-globe"></i> Media</a></li>
+	    <li><a href="{% url wainz.views.resources %}"><i class="icon-eye-open"></i> Resources</a></li>
+	    <li><a href="{% url wainz.views.mobileapps %}"><i class="icon-signal"></i> Mobile Apps</a></li>
+	    <li><a href="{% url wainz.views.howtohelp %}"><i class="icon-gift"></i> How to help</a></li>
+	    </ul>
+	</div>
+
+    
+    <div class='span7 well gen-text2'>
+    <h3>Sources and Types of freshwater pollution</h3>
+	<br />
+    <b>Water pollution</b> falls into two broad sources &ndash; &apos;Point Source&apos;, and &apos;Non Point Source (Diffuse)&apos;.
+	<br />
+        <br />
+    <b>Point Source</b> means that the point of origin is clearly identifiable. Examples would be a chemical factory, chicken farm, 
+    meat works, cattle yard, milking shed, sewage treatment plant, storm drain, animals defecating directly into a waterway, etc. &ndash; in other words you can see the &apos;Point of the source&apos;. 
+    These are normally dealt with by way of a &apos;Resource Consent&apos;.
+	<br />
+        <br />
+    <b>Diffuse</b> means that the source is spread over an area &ndash; most likely from animals grazing (urine and dung, water disturbance), or from vegetable 
+    and crop growing (fertiliser, silt&ndash;laden runoff). Rural &amp; community sewage systems also contribute, as do landfills.
+	<br />
+        <br />
+    <b>Diffuse sources</b> are harder to track and identify as the actual source may be some distance from the water body affected because pollutants 
+    enter the sub&ndash;surface water flow (upper aquifer) and are often ignored by the polluter and the responsible authority.
+	<br />
+        <br />
+   <b>Types of water pollution</b> can be roughly grouped into <b>Nutrient Enrichment, Effluent Contamination, and Sedimentation.</b>
+	<br />
+        <br />
+    <b>Nutrient enrichment:</b> A process that starts with nutrient laden water mixing with the ground water which then pollutes rivers, lakes and waterways.
+	<br />
+        <br />
+   This nutrient rich water acts as a liquid fertilizer causing an explosion of plant growth &ndash; <b>blue&ndash;green algae (Cyanobacteria)</b> in lakes, and invasive water 
+    weed in rivers. The plant growth chokes the life out of the water which ultimately increases the plant death rate with the result that the bacterial decomposition 
+    of the dead plants uses up oxygen, causing fish and other organisms to suffocate.
+	<br />
+        <br />
+   <b>Effluent Contamination:</b> Landfill Leachate, Town Drains, Sewage Treatment Plants, Septic Tanks, and Factory Discharges all contribute to general water pollution.
+	<br />
+        <br />
+   The actual pollutants include <b>Oil, Lead, Mercury and other Heavy metals, Household chemicals, and the ever present E. coli from sewage.</b> Landfills especially 
+    leach PCBs from electrical equipment, Arsenic and Chromium from treated wood, and the breakdown products from millions of batteries. Town drains usually 
+    discharge directly into rivers and lakes and carry suprisingly high levels of coliforms from animal droppings as well as all the rubbish and dirt from the roads..
+	<br />
+        <br />
+   <b>Sedimentation:</b> Sedimentation is when soil, silt and sand are washed into waterways and transported downstream into rivers and lakes.
+	<br />
+        <br />
+      The heavier stones and gravel settle out first, leaving the smaller sands and silt &ndash; which carry nutrients and biological debris &ndash; 
+      to deposit on the beds of quieter waters. This results in flooding due to reduced depth, and also an increase in nutrient rich silt in lake 
+      and river beds further limiting the life carrying capacity of the water.
+	<br />
+        <br />
+      <b>Cyanobacteria</b> are very small plant-like organisms that can build up to huge numbers under favourable conditions in lakes, rivers and oceans. 
+      Also known as blue-green algae, cyanobacteria is a family of bacteria that obtain their energy through sunlight (photosynthesis). They consume 
+      nitrates (fertilizer & sewage) in the process - fixing the nitrogen and releasing oxygen.
+	<br />
+        <br />
+      Ironically, they &ndash; the algae &ndash; are doing what we are too lazy or careless to do ourselves &ndash; clean up our waste and our 
+      farming runoff. But in the process, they can choke the life out of a body of water.
+	<br />
+        <br />
+      More info: <a href="http://en.wikipedia.org/wiki/Cyanobacteria" target="_blank">http://en.wikipedia.org/wiki/Cyanobacteria</a>
+	<br />
+        <br />
+      <b>Neuro&ndash;Toxic Scum</b> &ndash; Unfortunately, in the process, cyanobacteria produce neuro&ndash;toxins that can be fatal to people and animals including domestic pets, 
+	particularly dogs. This is one of the main reasons why lakes and swimming holes get closed. As little as one mouthful can kill a child, and skin exposure 
+	can cause numbness, reddening and can lead to painful long term skin damage.
+	<br />
+        <br />
+      To make things worse, when the algae finally decay in late summer, they leave behind a slimy brown sludge in the shallow water that looks and smells like 
+	human sewage. This eventually rots down, releasing nutrients which are stored in the sediment ready to add to the next bloom cycle. 
+	<br />
+        <br />
+      <b>Farm runoff</b> can occur with any type of farming &ndash; When it rains, nutrient&ndash;rich silt&ndash;laden water pours in from the farming catchments to the nearest drain. 
+	Whether we are talking about grazing stock (from manure &amp; urine), or growing veges and crops (from fertilizer), they both produce similar amounts of nitrate 
+	enriched runoff (genuine Organic Farming creates very little runoff in comparison).
+	<br />
+        <br />
+      <b>Intensive farming</b> (piggeries, feedlots, some dairy units, meatworks etc.) produce considerably higher quantities. Some of this is run into settlement ponds, 
+	and some is applied to the land, but a lot is simply ditched &ndash; drained to the nearest stream which eventually finishes up in a river or a lake. 
+	<br />
+        <br />
+      Regardless of whether we talk about <b>urban housing or rural housing</b> &ndash; on average, each person produces a similar amount of <b>sewage</b> and grey&ndash;water per day. 
+	In town we pipe to a sewage works and rural we pipe to a septic system &ndash; but in the end, the ground still absorbs it, where it soakes in. Nitrates, 
+	being totally soluble, become part of the water table that flows towards the nearest drainage point!
+	<br />
+        <br />
+      Runoff from urban areas (town&apos;s drain system) is <b>piped directly to streams, lakes and rivers.</b> This water has lower levels of nitrate, but can have 
+	surprisingly high levels of e.coli, as well as chemicals, soot, dust, grit, carbon&ndash;black, and oil &ndash; in fact all the stuff that we put on our cars, 
+	on our gardens, exhaust particles on the roads etc.
+	<br />
+        <br />
+	<b>Water Quality must be our primary goal</b> Of all the natural resources we collectively own Water is not only critically important, it is the most fragile. If you would like to help us look after what we have in New Zealand join our <a href="{% url wainz.views.howtohelp %}">volunteers</a>, <a href="{% url django.contrib.auth.views.login %}">login</a> or <a href='{% url registration_register %}'>become a member</a>.
+   </div>
+
+    <div class="span2">
+    <img class='border' src="{{ STATIC_URL }}images/pointsource.jpg" alt="Point Source" />
+    <p style='font-weight:bold'>Point Source</p>
+    <img class='border' src="{{ STATIC_URL }}images/cowpooing.jpg" alt="Cow defecating into a river" />
+     <p style='font-weight:bold'>Cow defecating into a river</p>
+    <img class='border' src="{{ STATIC_URL }}images/diffuse.jpg" alt="Diffuse" />
+     <p style='font-weight:bold'>Diffuse</p> 
+    <img class='border' src="{{ STATIC_URL }}images/pooinriver.jpg" alt="Nutrient rich dung" />
+     <p style='font-weight:bold'>Nutrient rich dung</p>
+    <img class='border' src="{{ STATIC_URL }}images/oilslick.jpg" alt="Oil and gutter debris" />
+     <p style='font-weight:bold'>Oil and gutter debris</p>
+    <img class='border' src="{{ STATIC_URL }}images/sediment.jpg" alt="River bank erosion" />
+     <p style='font-weight:bold'>River bank erosion</p> 
+    <img class='border' src="{{ STATIC_URL }}images/weedchoked.jpg" alt="Weed choked channel" />
+     <p style='font-weight:bold'>Weed choked channel</p> 
+    <img class='border' src="{{ STATIC_URL }}images/cyanobacteria.gif" alt="Cyanobacteria" />
+     <p style='font-weight:bold'>Cyanobacteria</p> 
+    <img class='border' src="{{ STATIC_URL }}images/lake_scum.jpg" alt="Neuro-toxic scum" />
+     <p style='font-weight:bold'>Neuro-toxic scum</p> 
+    <img class='border' src="{{ STATIC_URL }}images/grower_runoff.jpg" alt="Silt-laden runoff" />
+     <p style='font-weight:bold'>Silt-laden runoff</p> 
+    <img class='border' src="{{ STATIC_URL }}images/towndrain.jpg" alt="Town drainage" />
+     <p style='font-weight:bold'>Town drainage</p> 
+    <img class='border' src="{{ STATIC_URL }}images/cowpooing.jpg" alt="Cow defecating into a river" />>
+    <img class='border' src="{{ STATIC_URL }}images/purity.jpg" alt="100% Pure?">
+     <p style='font-weight:bold'>100% Pure?</p> 
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+

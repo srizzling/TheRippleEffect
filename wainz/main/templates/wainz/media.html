@@ -1,0 +1,206 @@
+{% extends "wainz/base.html" %}
+
+{% block container_content %}
+
+<header>
+  <div class='row-fluid background-color2'>
+    <div class='span3'>
+      <img height="150" src="{{ STATIC_URL }}images/logo2.jpg" alt="Wainz Logo" /> 
+    </div>
+    <div class='span6'>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <hr />
+      <h2>Interesting media articles</h2>
+    </div>
+    <div class='span3'>
+      <img height="130" style="float:right;margin:30px 30px 0px 0px;" src="{{ STATIC_URL }}images/riverwatch.jpg" alt="Riverwatch Logo" />
+    </div>
+  </div>
+ <hr />
+</header>
+
+<div class="container-fluid"> 
+    <div class='row-fluid'>
+	<div class='span2 well mainrow2'>
+	    <ul class="nav nav-list">
+	    <li class="nav-header" style='font-size: 14px'>Navigation</li>
+	    <li><hr /></li>
+	    <li><a href="{% url wainz.views.composite %}"><i class="icon-home"></i> Home</a></li>
+	    <li><a href="{% url wainz.views.facts %}"><i class="icon-info-sign"></i> Facts</a></li>
+	    <li><a href="{% url wainz.views.pollution %}"><i class="icon-map-marker"></i> Pollution</a></li>
+	    <!--<li><a href="{% url wainz.views.reports %}"><i class="icon-list-alt"></i> Reports</a></li>-->
+	    <li><a href="{% url wainz.views.imggallery %}"><i class="icon-camera"></i> Gallery</a></li>
+        <li><a href="{% url wainz.views.uav %}"><i class="icon-facetime-video"></i> UAV Videos</a></li>
+	    <li class="active"><a href="{% url wainz.views.media %}"><i class="icon-globe icon-white"></i> Media</a></li>
+	    <li><a href="{% url wainz.views.resources %}"><i class="icon-eye-open"></i> Resources</a></li>
+	    <li><a href="{% url wainz.views.mobileapps %}"><i class="icon-signal"></i> Mobile Apps</a></li>
+	    <li><a href="{% url wainz.views.howtohelp %}"><i class="icon-gift"></i> How to help</a></li>
+	    </ul>
+	</div>
+
+    <div class='span10 well gen-text2'>
+	<ul>
+     <li>Ali, I. (2013, 4 April). Dairy farmer slapped with $40k fine. NZ Herald. <a href="http://www.nzherald.co.nz/business/news/article.cfm?c_id=3&amp;objectid=10875362" target="_blank">Read more</a>
+     <li>Anderson, C. (2012, 16 November). New Zealand's green tourism push clashes with realities. New York times.  <a href="http://www.nytimes.com/2012/11/17/business/global/new-zealands-green-tourism-push-clashes-with-realities.html?pagewanted=all&amp;_r=0" target="_blank">Read more</a>
+     <li>Anon. (2013, 4 April). Streamside fencing plan wins converts. Bay of Plenty Times.  <a href="http://www.bayofplentytimes.co.nz/news/streamside-fencing-plan-wins-converts/1813910/" target="_blank">Read more</a>
+     <li>Anon. (2013, 29 March).  Bad smell at river estuary.  Southland Times.  <a href="http://www.stuff.co.nz/southland-times/news/8487367/Bad-smell-at-river-estuary" target="_blank">Read more</a>
+     <li>Anon. (2013, 27 March).  Dead fish in inner-city creek.  Nelson Mail.  <a href="http://www.stuff.co.nz/nelson-mail/news/8474473/Dead-fish-in-inner-city-creek" target="_blank">Read more</a>
+     <li>Anon. (2013, 19 March). E.coli found in Arthur's Pass water.  The Press.  <a href="http://www.stuff.co.nz/the-press/news/8445510/E-coli-found-in-Arthurs-Pass-water" target="_blank">Read more</a>
+     <li>Anon.  (2013, 6 March).  Future clearer for troubled lake.  Manawatu Standard.  <a href="http://www.stuff.co.nz/manawatu-standard/features/8389051/Future-clearer-for-troubled-lake" target="_blank">Read more</a>
+     <li>Anon.  (2013, 2 March).  More toxic algae warnings for Sth Canty waterways.  <a href="http://www.stuff.co.nz/timaru-herald/news/8372276/More-toxic-algae-warnings-for-Sth-Canty-waterways" target="_blank">Read more</a>
+     <li>Anon.  (2013, 2 March).  Algae spreads in two rivers.  Nelson Mail.  <a href="http://www.stuff.co.nz/nelson-mail/news/8373497/Algae-spreads-in-two-rivers" target="_blank">Read more</a>
+     <li>Anon.  (2013, 1 March).  Kids drive cleanup of 'yukky' stream.  Nelson Mail.  <a href="http://www.stuff.co.nz/nelson-mail/news/8368292/Kids-drive-cleanup-of-yukky-stream" target="_blank">Read more</a>
+     <li>Anon.  (2013, 27 February).  Waihao river infected.  Timaru Herald.  <a href="http://www.stuff.co.nz/timaru-herald/news/8356378/Waihao-river-infected" target="_blank">Read more</a>
+     <li>Anon. (2013, 30 March). Auckland's waterways show symptoms of drought. NZ Herald.  <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=10874489" target="_blank">Read more</a>
+     <li>Anon.  (2013, 9 February).  Boil water notice issued for Hororata.  The Press.  <a href="http://www.stuff.co.nz/the-press/news/8282663/Boil-water-notice-issued-for-Hororata" target="_blank">Read more</a>
+     <li>Anon.  (2013, 2 February).  Swamp life reveals hidden grove.  Marlborough Express.  <a href="http://www.stuff.co.nz/marlborough-express/news/8251222/Swamp-life-reveals-hidden-grove" target="_blank">Read more</a>
+     <li>Anon.  (2013, 1 February).  Dog dies from toxic algae.  Wairarapa Times-Age.  <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=10862807" target="_blank">Read more</a>
+     <li>Anon.  (2013, 29 January 2013).  Barn dairying reaches South Canterbury.  Stuff NZ.  <a href="http://www.stuff.co.nz/business/farming/8233677/Barn-dairying-reaches-South-Canterbury" target="_blank">Read more</a>
+     <li>Anon.  (2013, 24 January).   Water warning for Richmond after ecoli found.  Nelson Mail.  <a href="http://www.stuff.co.nz/nelson-mail/news/8219706/Water-warning-for-Richmond-after-ecoli-found" target="_blank">Read more</a>
+     <li>Anon. (2013, 17 January).  Mostly safe to go back in the water.  <a href="http://www.stuff.co.nz/dominion-post/news/8188547/Mostly-safe-to-go-back-in-the-water" target="_blank">Read more</a>
+     <li>Anon. (2013, 14 January).  Council issues river warning.  Stuff NZ.  <a href="http://www.stuff.co.nz/nelson-mail/news/8175615/Council-issues-river-warning" target="_blank">Read more</a>
+     <li>Anon.  (2013, 7 January).  Toxic algae on Waipoua River sparks warning.  NZ Herald.  <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=10857815" target="_blank">Read more</a>
+     <li>Anon.  (2013, 7 January).  Waiau drinking water contaminated.  Stuff NZ.  <a href="http://www.stuff.co.nz/the-press/news/8149696/Waiau-drinking-water-contaminated" target="_blank">Read more</a>
+     <li>Anon. (2013, 4 January).  What water means to me.  Stuff NZ.  <a href="http://www.stuff.co.nz/stuff-nation/assignments/8140204/What-water-means-to-me" target="_blank">Read more</a>
+     <li>Anon.  (2012, 28 December).  Hutt River toxic algae can kill dogs.  Stuff NZ.  <a href="http://www.stuff.co.nz/dominion-post/news/local-papers/hutt-news/8125980/Hutt-River-toxic-algae-can-kill-dogs" target="_blank">Read more</a>
+     <li>Anon. (2012, 27 November).  100% pure is like McDonald's ad, says Key.  Stuff NZ.  <a href="http://www.stuff.co.nz/national/politics/8000921/100-Pure-is-like-McDonalds-ad-says-Key" target="_blank">Read more</a>
+     <li>Anon.  (2012, 26 November).  Editorial:  100 Pure critic needs to be fair and accurate.  NZ Herald.  <a href="http://www.nzherald.co.nz/opinion/news/article.cfm?c_id=466&amp;objectid=10849871" target="_blank">Read more</a>
+     <li>Anon. (2012, 26 November). Cow died a 'agonising death' NZ Herald.  <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=10850115" target="_blank">Read more</a>
+     <li>Anon.  (2011, 8 September).  Q+A:  Bruce Wills &amp; Mike Joy on "dirty dairying".  TVNZ.  <a href="http://tvnz.co.nz/q-and-a-news/bruce-wills-mike-joy-dirty-dairying-13-18-video-4368792" target="_blank">Read more</a>
+     <li>Anon.  (2011, 11 May).  Key challenged to prove 'green' image.  3 News.  <a href="http://www.3news.co.nz/Key-challenged-to-prove-green-image/tabid/1160/articleID/210741/Default.aspx" target="_blank">Read more</a>
+     <li>Anon. (2011, 9 May).  New Zealand PM John Key: 'We are 100% pure'. BBC News.  <a href="http://news.bbc.co.uk/2/hi/programmes/hardtalk/9480610.stm" target="_blank">Read more</a>
+     <li>Anon. (2009, 4 February).  Wairarapa farming family continues to abuse environment.  3 News.  <a href="http://www.3news.co.nz/Wairarapa-farming-family-continues-to-abuse%20environment/tabid/817/articleID/89784/Default.aspx" target="_blank">Read more</a>
+     <li>Armstrong, D. (2012, 3 December).  '100% Pure' dissenter pays heavy price.  Dominion Post.  <a href="http://www.stuff.co.nz/dominion-post/comment/columnists/dave-armstrong/8026779/100-Pure-dissenter-pays-heavy-price" target="_blank">Read more</a>
+     <li>Anthony, J.  (2013, 4 February).  Battle for a clean river in the community's hands.  Taranaki Daily News.  <a href="http://www.stuff.co.nz/taranaki-daily-news/news/8258372/Battle-for-a-clean-river-in-the-communitys-hands" target="_blank">Read more</a>
+     <li>Backhouse, M. (2013, 17 March). Climate scientist's grim warning. NZ Herald.g <a href="http://www.nzherald.co.nz/agriculture/news/article.cfm?c_id=16&amp;objectid=10871812" target="_blank">Read more</a>
+     <li>Bazley, M.  (2012, 19 December).  Water is ECan's highest priority.  Stuff NZ.  <a href="http://www.stuff.co.nz/the-press/opinion/8097341/Water-is-ECans-highest-priority" target="_blank">Read more</a>
+     <li>Bennett, J.  (2013, 23 January).  Poisons reduce rivers to 'drains'.  Timaru Herald.  <a href="http://www.stuff.co.nz/timaru-herald/communities/8211512/Poisons-reduce-rivers-to-drains" target="_blank">Read more</a>
+     <li>Blithe, R. (2012, 2 May).  Mountains to the sea - saving Raglan's harbour.  Element magazine.  <a href="http://www.elementmagazine.co.nz/business/primary-industry/mountains-to-the-sea/" target="_blank">Read more</a>
+     <li>Blundell, K. (2012, 28 July).  Fears of losing whitebait prompt ban call.  Stuff NZ.  <a href="http://www.stuff.co.nz/environment/7366591/Fears-of-losing-whitebait-prompt-ban-call" target="_blank">Read more</a>
+     <li>Boyer, S. (2013, 1 February).  Rotting carcass revives river access row.  Dominion Post.  <a href="http://www.stuff.co.nz/dominion-post/news/8248585/Rotting-carcass-revives-river-access-row" target="_blank">Read more</a>
+     <li>Bradley, G. (2013, 9 January).  Absorbent clay key to clean farms.  NZ Herald.  <a href="http://www.nzherald.co.nz/pollution/news/article.cfm?c_id=281&amp;objectid=10858002" target="_blank">Read more</a>
+     <li>Bryant, G. (2013, 19 March).  Flaws seen in plan for discharges into waters. Southland Times.  <a href="http://www.stuff.co.nz/southland-times/news/8441912/Flaws-seen-in-plan-for-discharges-into-waters" target="_blank">Read more</a>
+     <li>Cairns, L.  (2013, 8 February).  Sewage leaks into Avon River near Hagley.  The Press.  <a href="http://www.stuff.co.nz/the-press/news/8280146/Sewage-leaks-into-Avon-River-near-Hagley" target="_blank">Read more</a>
+     <li>Campbell, K.  (2013, 25 January).  Copper leaching into Milford Sound.  NZ Herald.   <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=10861407" target="_blank">Read more</a>
+     <li>Chapman, K &amp; Hunter, T. (2013, 28 January).  Key rubbishes milk concerns.  Stuff NZ.  <a href="http://www.stuff.co.nz/business/farming/8231186/Key-rubbishes-milk-concerns" target="_blank">Read more</a>
+     <li>Chapman, K. (2012, 29 November). Hutt River toxic algae returns. Stuff NZ.  <a href="http://www.stuff.co.nz/dominion-post/news/hutt-valley/8015258/Hutt-River-toxic-algae-returns  " target="_blank">Read more</a>
+     <li>Chen, M.  (2013, 23 January).  Time to harness the economic tiger.  NZ Herald.  <a href="http://www.nzherald.co.nz/opinion/news/article.cfm?c_id=466&amp;objectid=10861004" target="_blank">Read more</a>
+     <li>Cousins, J. (2013, 8 March).  Sea lettuce impact revealed.  Bay of Plenty Times.  <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=10870006" target="_blank">Read more</a>
+     <li>Crichton, F. (2012, 30 September). Tongariro: Of willows and wetlands.  NZ Herald.Â  <a href="http://www.nzherald.co.nz/travel/news/article.cfm?c_id=7&amp;objectid=10837146" target="_blank">Read more</a>
+     <li>Chistian, D.  (2013, 9 February).  Roam Auckland's wetland gems.  NZ Herald.  <a href="http://www.nzherald.co.nz/environment/news/article.cfm?c_id=39&amp;objectid=10864216" target="_blank">Read more</a>
+     <li>Crompton, A. (2013, 16 February).  Nature's way.  Marlborough Express.  <a href="http://www.stuff.co.nz/marlborough-express/news/8310480/Natures-way" target="_blank">Read more</a>
+     <li>Cronshaw, T.  (2013, 25 January).  Fears of tainted image for NZ milk.  Stuff NZ.  <a href="http://www.stuff.co.nz/business/farming/8220954/Fears-of-tainted-image-for-NZ-milk" target="_blank">Read more</a>
+     <li>Cronshaw, T.  (2013, 24 January).  Product recall to protect dairy exports.  <a href="http://www.stuff.co.nz/business/farming/8219272/Product-recall-to-protect-dairy-exports" target="_blank">Read more</a>
+     <li>Cronshaw, T.  (2013, 18 January).  Farmers 'more vulnerable' to suicide.  The Press.  <a href="http://www.stuff.co.nz/the-press/business/farming/8193213/Farmers-more-vulnerable-to-suicide" target="_blank">Read more</a>
+     <li>Cummings, G. (2012, 17 November).  Water crisis:  Going with the flow.  NZ herald.  <a href="http://www.nzherald.co.nz/environment/news/article.cfm?c_id=39&amp;objectid=10847930" target="_blank">Read more</a>
+     <li>Cummings, G. (2007, 14 April).  Environmental report card suggests we need to clean up our act.  NZ Herald.  <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=10434134" target="_blank">Read more</a>
+     <li>Dastgheib, S.  (2013, 29 January).  Owhiro Bay's water quality rated worst.  Dominion Post.  <a href="http://www.stuff.co.nz/dominion-post/news/8233225/Owhiro-Bays-water-quality-rated-worst" target="_blank">Read more</a>
+     <li>Du Fresne, K.  (2013, 22 February).  Horowhenua's man of the lake again landed behind bars.  Listener.  <a href="http://www.listener.co.nz/current-affairs/horowhenuas-man-of-the-lake-again-landed-behind-bars/" target="_blank">Read more</a>
+     <li>Du Fresne, K.  (2013, 21 February).  Horowhenua's lake of shame.  Listener.  <a href="http://www.listener.co.nz/current-affairs/horowhenuas-lake-of-shame/" target="_blank">Read more</a>
+     <li>Edens, J.  (2013, 28 February).  Big water task ahead.  Southland Times.  <a href="http://www.stuff.co.nz/southland-times/news/8359422/Big-water-task-ahead" target="_blank">Read more</a>
+     <li>Editor. (2012, 18 October).  Editorial: Fail mark for river quality a real disgrace.  NZ herald.  <a href="http://www.nzherald.co.nz/pollution/news/article.cfm?c_id=281&amp;objectid=10841238" target="_blank">Read more</a>
+     <li>Editor.  (2012, 10 September).  Editorial:  Farmers' ignorance inexcusable.  Dominion Post.  <a href="http://www.stuff.co.nz/dominion-post/comment/editorials/7642888/Editorial-Farmers-ignorance-inexcusable" target="_blank">Read more</a>
+     <li>Edwards, L. (2013, 26 February).  French scientists join river algae probe.  Hutt News.  <a href="http://www.stuff.co.nz/dominion-post/news/local-papers/hutt-news/8350691/French-scientists-join-river-algae-probe" target="_blank">Read more</a>
+     <li>Edwards, T. (2013, 15 February).  Best water bombs:  Splash time in the Hutt.  Stuff NZ.  <a href="http://www.stuff.co.nz/stuff-nation/8308797/Best-water-bombs-Splash-time-in-the-Hutt" target="_blank">Read more</a>
+     <li>Fallow, B. (2011, 12 May).  Government's water plan making waves.  NZ Herald.  <a href="http://www.nzherald.co.nz/business/news/article.cfm?c_id=3&amp;objectid=10724961" target="_blank">Read more</a>
+     <li>Forsyth, I. (2013, 7 January).  What water means to me: Everything.  Stuff NZ.  <a href="http://www.stuff.co.nz/stuff-nation/8150497/What-water-means-to-me-Everything" target="_blank">Read more</a>
+     <li>Gill, I. (2012, 4 December). Our precious environment: Lake Daniells. Stuff NZ. <a href="http://www.stuff.co.nz/stuff-nation/8032682/Our-precious-environment-Lake-Daniells" target="_blank">Read more</a>
+     <li>Grocott, M.  (2013, 26 January 2013).  Councillor keen to stay despite irrigation case.  Manawatu Standard.   <a href="http://www.stuff.co.nz/manawatu-standard/news/8227058/Councillor-keen-to-stay-despite-irrigation-case" target="_blank">Read more</a>
+     <li>Grocott, M.  (2013, 12 January).  Toxic algae find in Manawatu rivers.  Stuff NZ.  <a href="http://www.stuff.co.nz/national/8170081/Toxic-algae-find-in-Manawatu-rivers" target="_blank">Read more</a>
+     <li>Gullery, L.  (2013, 28 February).  Tukituki battle lines drawn.  Hawkes Bay Today.  <a href="http://www.hawkesbaytoday.co.nz/news/tukituki-battle-lines-drawn/1773517/" target="_blank">Read more</a>
+     <li>Gullery, L. (2013, 7 January).  Fishermen urge ban on cattle in rivers.  NZ Herald.  <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=10857690" target="_blank">Read more</a>
+     <li>Hatch, L. (2012, 6 March).  Riparian planting makes impact.  Manawatu Standard.  <a href="http://www.stuff.co.nz/manawatu-standard/rural/6530121/Riparian-planting-makes-impact" target="_blank">Read more</a>
+     <li>Hernandez, J.  (2013, 14 February).  Best water bombs:  Summer in Kerikeri.  Stuff NZ.  <a href="http://www.stuff.co.nz/stuff-nation/8303932/Best-water-bombs-Summer-in-Kerikeri" target="_blank">Read more</a>
+     <li>Hickland, A.  (2013, 9 January).  Toxic algae health risk for river users.  Wairarapa Times-Age.  <a href="http://www.nzherald.co.nz/pollution/news/article.cfm?c_id=281&amp;objectid=10858066" target="_blank">Read more</a>
+     <li>Horsley, E. (2012, 25 October).  Farmers hit back at Morgan claims.  Manawatu standard.  <a href="http://www.stuff.co.nz/manawatu-standard/news/7859397/Farmers-hit-back-at-Morgan-claims" target="_blank">Read more</a>
+     <li>Horsley, E &amp; Galloway, J. (2012, 6 September).  One Plan ruling divides opinion.  Manawatu Standard.  <a href="http://www.stuff.co.nz/manawatu-standard/news/7622685/One-Plan-ruling-divides-opinion" target="_blank">Read more</a>
+     <li>Hoyle, T.  (2013, 15 February).  Best water bombs:  Cleddau River.  Stuff NZ.  <a href="http://www.stuff.co.nz/stuff-nation/8308261/Best-water-bombs-Cleddau-River" target="_blank">Read more</a>
+     <li>Johnston, A.  (2013, 31 January).  Health warning over toxic algal bloom renewed.  Timaru Herald.  <a href="http://www.stuff.co.nz/timaru-herald/news/8243790/Health-warning-over-toxic-algal-bloom-renewed" target="_blank">Read more</a>
+     <li>Judd, S. (2012, 24 December). Sam Judd: Sick of shellfish bans? NZ Herald. <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=10855921" target="_blank">Read more</a>
+     <li>Judd, S. (2012, 21 June).  Sam Judd: Death to dirty dairy? NZ Herald. <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=10814208" target="_blank">Read more</a>
+     <li>Lancashire, J.  (2013, 14 January).  A strong Resource Management Act is vital.  Dominion Post.  <a href="http://www.stuff.co.nz/dominion-post/news/politics/8173860/A-strong-Resource-Management-Act-is-vital" target="_blank">Read more</a>
+     <li>Littlewood, M. (2013, 27 February).  Toxic rivers persist while big dry bites.  Timaru Herald.  <a href="http://www.stuff.co.nz/timaru-herald/news/8356409/Toxic-rivers-persist-while-big-dry-bites" target="_blank">Read more</a>
+     <li>Littlewood, M. (2012, 27 September).  Potential bias in water rules concerning.  Stuff NZ.  <a href="http://www.stuff.co.nz/timaru-herald/news/7734402/Potential-bias-in-water-rules-concerning" target="_blank">Read more</a>
+     <li>Kidson, S.  (2013, 19 January).  Rivers too foul for recreation after rain.  Nelson Mail.  <a href="http://www.stuff.co.nz/nelson-mail/news/8198944/Rivers-too-foul-for-recreation-after-rain" target="_blank">Read more</a>
+     <li>McBride, N.  (2013, 18 January).  Bridge work stops after video catches river dump.  Greymouth Star.  <a href="http://www.nzherald.co.nz/environment/news/video.cfm?c_id=39&amp;gal_objectid=10860042&amp;gallery_id=130357" target="_blank">Read more</a>
+     <li>Manhire, T.  (2012, 30 November).  Risks in putting head above 100% Pure parapet.  NZ Herald.  <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=10850911" target="_blank">Read more</a>
+     <li>Martin, M.  (2013, 20 February).  Greens slam Lake Rotorua deal.  NZ Herald.  <a href="http://www.nzherald.co.nz/environment/news/article.cfm?c_id=39&amp;objectid=10866623" target="_blank">Read more</a>
+     <li>Mathewson, N.  (2012, 18 December).  Toxic algae scare in Ashley River.  Stuff NZ.  <a href="http://www.stuff.co.nz/the-press/news/8094122/Toxic-algae-scare-in-Ashley-River" target="_blank">Read more</a>
+     <li>Moore, B.  (2013, 13 February).  Call for action on toxic algae.  Nelson Mail.  <a href="http://www.stuff.co.nz/nelson-mail/8298078/Call-for-action-on-toxic-algae" target="_blank">Read more</a>
+     <li>Morgan, J. (2013, 4 April). Setback for farmers fighting new rules. Stuff NZ. <a href="http://www.stuff.co.nz/business/farming/8507871/Setback-for-farmers-fighting-new-rules" target="_blank">Read more</a>
+     <li>Morgan, J.  (2013, 31 January).  Glitter of the sun on stinking slime.  Stuff NZ.  <a href="http://www.stuff.co.nz/business/farming/8246955/Glitter-of-the-sun-on-stinking-slime" target="_blank">Read more</a>
+     <li>Morgan, J. (2013, 17 January).  US folly and China foster NZ farmers.  <a href="http://www.stuff.co.nz/business/opinion-analysis/8186944/US-folly-and-China-foster-NZ-farmers" target="_blank">Read more</a>
+     <li>Morgan, J. (2012, 20 December).  Changing tune on cleaning up waterways.  Stuff NZ.  <a href="http://www.stuff.co.nz/business/farming/8102896/Changing-tune-on-cleaning-up-waterways" target="_blank">Read more</a>
+     <li>Morgan, J. (2012, 23 November).  We'll be hands on over water - minister.  Stuff NZ.  <a href="http://www.stuff.co.nz/business/farming/7986952/We-ll-be-hands-on-over-water-minister" target="_blank">Read more</a>
+     <li>Morgan, J.  (2012, 1 November).  Water priorities come up trumps.  Stuff NZ.  <a href="http://www.stuff.co.nz/business/farming/7892170/Water-priorities-come-up-trumps" target="_blank">Read more</a>
+     <li>Morgan, J. (2012, 10 July). Water clean-up a challenge for farming.  Stuff New Zealand.  <a href="http://www.stuff.co.nz/business/farming/7248856/Water-clean-up-a-challenge-for-farming" target="_blank">Read more</a>
+     <li>Morgan, J. (2012, 14 March).  Time to cut cow numbers, for future generations.  Dominion Post.  <a href="http://www.stuff.co.nz/dominion-post/comment/6571091/Time-to-cut-cow-numbers-for-future-generations" target="_blank">Read more</a>
+     <li>Morton, J. (2013, 15 March). Kiwis take more than a fair share.  NZ Herald.  <a href="http://www.nzherald.co.nz/environment/news/article.cfm?c_id=39&amp;objectid=10871323" target="_blank">Read more</a>
+     <li>Morton, J.  (2013, 18 February).  Deal ends fight over lake clean-up.  NZ Herald.  <a href="http://www.nzherald.co.nz/environment/news/article.cfm?c_id=39&amp;objectid=10866010" target="_blank">Read more</a>
+     <li>Morton, J.  (2013, 21 January).  Govt accused of ignoring advice on clean, green brand.  NZ Herald.  <a href="http://www.nzherald.co.nz/environment/news/article.cfm?c_id=39&amp;objectid=10860411" target="_blank">Read more</a>
+     <li>Ngaia, L. (2013, 5 January).  What water means to me: It's us.  Stuff NZ.  <a href="http://www.stuff.co.nz/stuff-nation/8144112/What-water-means-to-me-Its-us" target="_blank">Read more</a>
+     <li>Nichols, L, &amp; Stewart, M. (2012, 15 June). Dairy damaging Wellington water. Dominion post.  <a href="http://www.stuff.co.nz/dominion-post/news/7106555/Dairy-damaging-Wellington-water" target="_blank">Read more</a>
+     <li>Nicoll, J. (2013, 17 January).  Picton foreshore no-swim zone.  <a href="http://www.stuff.co.nz/marlborough-express/news/8188421/Picton-foreshore-no-swim-zone" target="_blank">Read more</a>
+     <li>Norton, H.  (2013, 23 February).  Marine life faces wipe-out - expert.  Northern Advocate.   <a href="http://www.northernadvocate.co.nz/news/marine-life-faces-wipe-out-expert/1767292/" target="_blank">Read more</a>
+     <li>NZ Newswire.  (2012, 19 November).  NZ green image tarnished: New York times.  Yahoo.  <a href="http://nz.totaltravel.yahoo.com/news-opinions/news/a/-/15418525/nz-green-image-tarnished-new-york-times/" target="_blank">Read more</a>
+     <li>Olsen, T. (2012, 3 December).  One Plan to have disastrous impact.  Dominion Post. <a href="http://www.stuff.co.nz/dominion-post/comment/8027449/One-Plan-to-have-disastrous-impact" target="_blank">Read more</a>
+     <li>O'Sullivan, P.  (2013, 28 February).  Wetlands the way to go.  Hawkes Bay Today.  <a href="http://www.hawkesbaytoday.co.nz/news/wetlands-the-way-to-go/1773765/" target="_blank">Read more</a>
+     <li>Peat, N. (2013, 17 January).  Neville Peat: Slow economy trampling environment.  <a href="http://www.nzherald.co.nz/politics/news/article.cfm?c_id=280&amp;objectid=10859571" target="_blank">Read more</a>
+     <li>Radio NZ. (2013, 21 March).  Our changing world - Banks Peninsula.  Afternoons.  <a href="http://www.radionz.co.nz/national/programmes/afternoons/20130321 " target="_blank">Read more</a>
+     <li>Radio NZ. (2012, Tuesday 20 November). Nine to Noon - Business with Rod Oram.  <a href="http://www.radionz.co.nz/national/programmes/ninetonoon/20121120" target="_blank">Read more</a>
+     <li>Radio NZ. (2012, 5 November).  Farmers duck blame for dangerous water quality.  Checkpoint.  <a href="http://www.radionz.co.nz/national/programmes/checkpoint" target="_blank">Read more</a>
+     <li>Radio NZ. (2012, 30 October 2012).  Threats to endangered coast birdlife.  Nine to Noon.  <a href="http://www.radionz.co.nz/national/programmes/ninetonoon/audio/2537020/threats-to-endangered-coastal-birdlife" target="_blank">Read more</a>
+     <li>Radio NZ. (2012, 19 October).  Planting evidence.  Country life. <a href="http://www.radionz.co.nz/national/programmes/countrylife/audio/2536085/planting-evidence" target="_blank">Read more</a>
+     <li>Radio NZ. (2012, 12 October).  Dairying and environmental challenges/Lake Taupo and nitrogen reduction policy.  Rural news.  <a href="http://www.radionz.co.nz/national/programmes/ruralnews" target="_blank">Read more</a>
+     <li>Radio NZ. (2012, 17 October).  How clean are recreational sites on NZ rivers?  Nine to Noon. <a href="http://www.radionz.co.nz/national/programmes/ninetonoon/audio/2535797/how-clean-are-recreational-sites-on-nz-rivers" target="_blank">Read more</a>
+     <li>Radio NZ.   (2012, 12 October).  Tomorrow's farms today.  Country Life.  <a href="http://www.radionz.co.nz/national/programmes/countrylife/audio/2535410/tomorrow%27s-farms-today" target="_blank">Read more</a>
+     <li>Radio NZ. (2012, 8 October).  Christina Robb - Canterbury water allocation and management.  Nine to noon.  <a href="http://www.radionz.co.nz/national/programmes/ninetonoon/audio/2534871/christina-robb-canterbury-water-allocation-and-management" target="_blank">Read more</a>
+     <li>Radio NZ. (2012, 5 October). Flying the family flag.  Country life. <a href="http://www.radionz.co.nz/search/results?utf8=%E2%9C%93&amp;q=flying+the+family+flag" target="_blank">Read more</a>
+     <li>Radio NZ. (2012, 12 August).  Alastair Bisley: freshwater resources.  Sunday Morning.  <a href="http://www.radionz.co.nz/national/programmes/sunday/audio/2527876/alastair-bisley-freshwater-resourses" target="_blank">Read more</a>
+     <li>Radio NZ. (2012, 4 June).  Mike Joy interview.  <a href="http://www.radionz.co.nz/national/programmes/queensbirthday/audio/2520907/mike-joy-ecologist" target="_blank">Read more</a>
+     <li>Radio NZ. (2012, 30 April). Eels destined for extinction.  Morning Report.  <a href="http://www.radionz.co.nz/national/programmes/morningreport/audio/2517210/eels-destined-for-extinction" target="_blank">Read more</a>
+     <li>Radio NZ. (2010, 12 August).  Waikato River.  Our changing world.  <a href="http://www.radionz.co.nz/national/programmes/ourchangingworld/20100812" target="_blank">Read more</a>
+     <li>Rankin, J.  (2013, 7 March).  Sewage pollution problem unsolved.  Manawatu Standard.  <a href="http://www.stuff.co.nz/manawatu-standard/news/8393859/Sewage-pollution-problem-unsolved" target="_blank">Read more</a>
+     <li>Ratley, N. (2013, 18 March). Guides help keep waterways healthy.  Southland Times. <a href="http://www.stuff.co.nz/southland-times/news/8437261/Guides-help-keep-waterways-healthy" target="_blank">Read more</a>
+     <li>Royal Society of NZ. (2013, March). The sustainable carrying capacity of New Zealand. <a href="http://www.nzherald.co.nz/environment/news/article.cfm?c_id=39&amp;objectid=10871323" target="_blank">Read more</a>
+     <li>Royal Society of NZ. (2013, March). Constraints to New Zealand's sustainable well-being. <a href="http://www.nzherald.co.nz/environment/news/article.cfm?c_id=39&amp;objectid=10871323" target="_blank">Read more</a>
+     <li>Russell, T.  (2013, 15 January).  Southland dairy farms attract most investments.  <a href="http://www.stuff.co.nz/business/farming/8180325/Southland-dairy-farms-attract-most-investments" target="_blank">Read more</a>
+     <li>Rutherford, H.  (2013, 23 January).  $80m put up for irrigation finance help.  Stuff NZ.  <a href="http://www.stuff.co.nz/business/farming/8213366/80m-put-up-for-irrigation-finance-help" target="_blank">Read more</a>
+     <li>Sachdeva, S. (2012, 13 January).  Lake pollution jeopardises clean-up.  Stuff NZ.  <a href="http://www.stuff.co.nz/the-press/news/6250771/Lake-pollution-jeopardises-clean-up" target="_blank">Read more</a>
+     <li>Salmond, A. (2013, 8 February).  Dame Anne Salmond:  Let's look after our beautiful land.  NZ Herald.  <a href="http://www.nzherald.co.nz/environment/news/article.cfm?c_id=39&amp;objectid=10864064" target="_blank">Read more</a>
+     <li>Shadwell, T. (2012, 24 November).  Scientist defends statements.  Stuff NZ.  <a href="http://www.stuff.co.nz/environment/7993009/Scientist-defends-statements" target="_blank">Read more</a>
+     <li>Sharpe, M. (2012, 3 December).  $74k fine for dirty dairy farming.  Stuff NZ.  <a href="http://www.stuff.co.nz/environment/8027832/74k-fine-for-dirty-dairy-farming" target="_blank">Read more</a>
+     <li>Sharpe, M. (2012, 2 November).  Unclean and green bloom in lake a health risk.  Dominion Post.  <a href="http://www.stuff.co.nz/dominion-post/news/hawkes-bay/7896151/Unclean-and-green-bloom-in-lake-a-health-risk" target="_blank">Read more</a>
+     <li>Sharpe, M. (2012, 26 September). Farmers to fight limit on nitrogen.  Stuff New Zealand.  <a href="http://www.stuff.co.nz/business/farming/7728590/Farmers-to-fight-limit-on-nitrogen" target="_blank">Read more</a>
+     <li>Sharpe, M. (2012, 6 September). Ruling puts rivers ahead of farmers. Stuff New Zealand. <a href="http://www.stuff.co.nz/business/farming/7621296/Ruling-puts-rivers-ahead-of-farmers" target="_blank">Read more</a>
+     <li>Sharpe, M. (2012, 5 June). Dirty dairying laid bare. Stuff New Zealand. <a href="http://www.stuff.co.nz/dominion-post/business/7042097/Dirty-dairying-laid-bare" target="_blank">Read more</a>
+     <li>Smith, N. (2010, 29 November).  Liquid assets.  NZ Herald.  <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=10690032" target="_blank">Read more</a>
+     <li>Stewart, M. (2012, 1 December). 100% Pure Fantasy? Living up to our brand.  Stuff NZ.  <a href="http://www.stuff.co.nz/environment/8023412/100-Pure-Fantasy-Living-up-to-our-brand" target="_blank">Read more</a>
+     <li>Stewart, R. (2013, 18 March).  DOC sells its soul to Fonterra for a pittance.  <a href="http://www.stuff.co.nz/taranaki-daily-news/opinion/riding-shotgun/8437185/DOC-sells-its-soul-to-Fonterra-for-a-pittance" target="_blank">Read more</a>
+     <li>Stewart, R. (2012, 13 October).  Celebrating exposing spin.  Waikato Times.  <a href="http://www.stuff.co.nz/waikatotimes/opinion/columnists/7812091/Celebrating-exposing-spin" target="_blank">Read more</a>
+     <li>Stylianou, G. (2012, 28 August). Council criticised after Darfield outbreak.  <a href="http://www.stuff.co.nz/national/health/7564883/Council-criticised-after-Darfield-outbreak" target="_blank">Read more</a>
+     <li>Shuttleworth, K &amp; Nichols, L.  (2013, 25 January).  Greens hit out at milk contamination.  NZ Herald.  <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=10861424" target="_blank">Read more</a>
+     <li>Tait, M.  (2013, 12 January).  Dog dies from suspected pond poisoning.  NZ Herald.  <a href="http://www.nzherald.co.nz/nz/news/article.cfm?c_id=1&amp;objectid=10858672" target="_blank">Read more</a>
+     <li>Theunissen, M.  (2013, 1 February).  Eco-systems threatened by agrichemical run-off.  NZ Herald.  <a href="http://www.nzherald.co.nz/environment/news/article.cfm?c_id=39&amp;objectid=10862770" target="_blank">Read more</a>
+     <li>Tocker, A. (2012, 24 July).  Chopper upsets farmers.  Waikato Times.  <a href="http://www.stuff.co.nz/waikato-times/farming/7336636/Chopper-upsets-farmers" target="_blank">Read more</a>
+     <li>Tocker, A. (2012, 20 November).  Rare catch rewards farmers' cleanup.  Waikato times.  <a href="http://www.stuff.co.nz/waikato-times/farming/7972372/Rare-catch-rewards-farmers-cleanup" target="_blank">Read more</a>
+     <li>Toki, N. (2012, 17 October).  Up the creek without a paddle... Stuff NZ.  <a href="http://www.stuff.co.nz/national/blogs/in-our-nature/7826702/Up-the-creek-without-a-paddle" target="_blank">Read more</a>
+     <li>Toki, N.  (2012, 19 September).  There's something in the water... Stuff NZ.  <a href="http://www.stuff.co.nz/national/blogs/in-our-nature/7692586/Theres-something-in-the-water" target="_blank">Read more</a>
+     <li>Toki, N. (2012, 4 September).  Marvellous mudfish - a fish out of water.  Stuff NZ.  <a href="http://www.stuff.co.nz/national/blogs/in-our-nature/7604360/Marvellous-mudfish-a-fish-out-of-water" target="_blank">Read more</a>
+     <li>Trought, G. (2013, 24 February).g Precious environment: Marlborough Sounds. NZ Stuff. <a href="http://www.stuff.co.nz/stuff-nation/assignments/readers-reports-share-your-precious-environment/8338836/Precious-environment-Marlborough-Sounds" target="_blank">Read more</a>
+     <li>TV One. (2013, 27 March). H2o. Global Radar.  <a href="http://tvnz.co.nz/global-radar/s2-ep4-video-5376334" target="_blank">Read more</a>
+     <li>Wardle, P.  (2013, 2 January).  River spot too dirty for swimming.  Stuff NZ.  <a href="http://www.stuff.co.nz/marlborough-express/8135775/River-spot-too-dirty-for-swimming" target="_blank">Read more</a>
+     <li>Webb, T. (2011, 28 May).  Improving our waterways.  NZ Listener.  <a href="http://www.listener.co.nz/commentary/editorial/improving-our-waterways/" target="_blank">Read more</a>
+     <li>Wright, V.  (2013, 10 January).  Water means everything to me.  Stuff NZ.  <a href="http://www.stuff.co.nz/stuff-nation/8158215/Water-means-everthing-to-me" target="_blank">Read more</a>
+     <li>Young, R. (2013, 6 March).  Fisheries staff busy saving stranded trout.  Stuff NZ.  <a href="http://www.stuff.co.nz/environment/8386396/Fisheries-staff-busy-saving-stranded-trout" target="_blank">Read more</a>
+    </ul>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+

@@ -1,0 +1,21 @@
+{% extends "admin/base.html" %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans 'WAINZ Admin' %}{% endblock %}
+
+{% block branding %}
+<style type="text/css">
+  #header
+  {
+      color:#999;
+      background-color:#333;
+  }
+  #branding h1
+  {
+      color:#999;
+  }
+</style>
+<h1 id="site-name"><a href="{% url wainz.views.composite %}">{% trans 'WAINZ Home' %}</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}

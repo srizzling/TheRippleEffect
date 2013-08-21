@@ -1,0 +1,25 @@
+{% extends "wainz/base.html" %}
+
+{% load voting_tags %}
+
+{% block container_content %}
+
+  {% for idx, row in rows.items %}
+    <div class='row-fluid'>
+      <ul class='thumbnails'>
+    {% for img in row %}
+      <li class='span4'>
+	<a href='{% url wainz.views.image img.id %}' class='thumbnail'>
+	  <img src='{{ STATIC_URL }}uploaded-images/{{img.image_path}}.{{img.extension}}'></img>
+	</a>
+      </li>
+    {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+
+{% endblock %}
+
+{% block page_specific_javascript %}
+
+{% endblock %}

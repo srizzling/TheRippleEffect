@@ -1,0 +1,51 @@
+{% extends "wainz/base.html" %}
+
+{% block container_content %}
+    <h2>Select the images you wish to include in the report
+         <form method='POST' action='{% url wainz.views.report_details %}'>
+         <input id='submit' type='submit' class='btn btn-success pull-right' style='display:inline' value="Begin report generation">Begin report generation</input>
+         <input id="sub_ids" type="hidden" name="ids"></input>
+         <input type="hidden" name="csrfmiddlewaretoken">{% csrf_token %}</input>
+         </form>
+    </h2>
+    <div style='background-color:#556; height:3px; margin-bottom:5px'></div>
+    <div class="row">
+        <div class="span5 gmaps" id="map_canvas"> </div>
+        <span id="csrf">{% csrf_token %}</span>
+        {{search_form}}
+        <div class="span3 well" id="image_container">
+            <h2>Selected Images</h2>
+            <h4>(click to remove)</h4>
+            <div style='background-color:#556; height:3px; margin-bottom:5px'></div>
+            <ul class='thumbnails' id="thumbs">
+                
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+{% block page_specific_javascript %}
+  <script type="text/javascript"
+      src="//maps.googleapis.com/maps/api/js?key=AIzaSyAwwi-pYumS3O9OxbscA3pbDb_MPuWA6Eo&sensor=true">
+  </script>
+  <script type="text/javascript">
+    //Server side provided javascript utilised variables go here
+    {% autoescape off %} 
+        var points = {{latLngs}}
+        var markers = []
+        
+        var tagTypeaheadSource = [
+            {% for tag in typeAheadTags %}
+                "{{tag.tag_text}}", 
+            {% endfor %}
+        ]
+
+    {% endautoescape %} 
+  </script>
+
+  <script type="text/javascript" src="{{ STATIC_URL }}js/report_chooser.js"></script>
+
+  <script type="text/javascript" src="{{ STATIC_URL }}js/bootstrap-datepicker.js"></script>
+  <link rel="stylesheet" href="{{ STATIC_URL }}datepicker.css" >
+  <script type="text/javascript" src="{{ STATIC_URL }}js/map_filters.js"></script>
+{% endblock %}
