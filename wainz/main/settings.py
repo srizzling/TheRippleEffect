@@ -1,6 +1,10 @@
 # Django settings for main project.
 
-DEBUG = False
+import os
+gettext = lambda s: s
+PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
+
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = ()
@@ -12,10 +16,10 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.postgresql_psycopg2
-        #'NAME': '/vol/ecs/sites/wainz/db/sqlite3.db', # Or path to database file if using sqlite3. e302t7
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.postgresql_psycopg2
-        'NAME': 'wainz', # Or path to database file if using sqlite3. e302t7
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.postgresql_psycopg2
+        'NAME': os.path.join(PROJECT_PATH,'db/sqlite3.db'), # Or path to database file if using sqlite3. e302t7
+        #'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.postgresql_psycopg2
+        #'NAME': 'wainz', # Or path to database file if using sqlite3. e302t7
         'USER': '',                      # Not used with sqlite3. ubuntu
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -57,7 +61,7 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.join(PROJECT_PATH, "media")
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -68,19 +72,23 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = '/vol/ecs/sites/wainz/main/static'
+#STATIC_ROOT = '/vol/ecs/sites/wainz/main/static'
+STATIC_ROOT = os.path.join(PROJECT_PATH, "static")
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '//www.wainz.org.nz/static/'
+#STATIC_URL = '//www.wainz.org.nz/static/'
+STATIC_URL = '/static/'
 
 # Additional locations of static files
-STATICFILES_DIRS = (    
-    #os.path.join(os.path.dirname(__file__), "static"),
+STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    # os.path.join(PROJECT_PATH, "static/uploaded-images"),
 )
+
+
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -112,11 +120,12 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'main.urls'
 
-# Python dotted path to the WSGI application used by Django's runserver.
+# Python dotted path to the WSGI application used by Django's runserver.*
 WSGI_APPLICATION = 'main.wsgi.application'
 
 TEMPLATE_DIRS = (
-    "/vol/ecs/sites/wainz/main/templates/",
+    #"/vol/ecs/sites/wainz/main/templates/",
+    os.path.join(PROJECT_PATH, "templates"),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
