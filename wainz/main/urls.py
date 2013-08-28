@@ -18,6 +18,8 @@ urlpatterns = patterns('',
     url(r'^imggallery/$', 'wainz.views.imggallery'),
     url(r'^uav/$', 'wainz.views.uav'),
     url(r'^pollution/$', 'wainz.views.pollution'),
+
+ #    url(r'^pollutioncms/', 'wainz.wainz_cms.pollution'),
     url(r'^mobileapps/$', 'wainz.views.mobileapps'),
     url(r'^howtohelp/$', 'wainz.views.howtohelp'),
     url(r'^reports/$', 'wainz.views.reports'),

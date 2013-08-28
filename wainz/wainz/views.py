@@ -68,7 +68,7 @@ def media(request):
     return render_to_response('wainz/media.html', {}, context_instance = RequestContext(request))
 
 def pollution(request):
-    return render_to_response('wainz/pollution.html', {}, context_instance = RequestContext(request))
+    return render_to_response('wainz/wainz_cms/pollution.html', {}, context_instance = RequestContext(request))
 
 def uav(request):
     return render_to_response('wainz/uav.html', {}, context_instance = RequestContext(request))
