@@ -66,7 +66,7 @@ MEDIA_ROOT = os.path.join(PROJECT_PATH, "media")
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = "/media/"
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -78,7 +78,7 @@ STATIC_ROOT = os.path.join(PROJECT_PATH, "static")
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
 #STATIC_URL = '//www.wainz.org.nz/static/'
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -108,6 +108,10 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
+CMS_TEMPLATES = (
+    ('wainz/base.html', 'Base Template'),
+)
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -116,6 +120,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'cms.middleware.multilingual.MultilingualURLMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'main.urls'
@@ -140,7 +148,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
     "main.processors.current_url",
-    "main.processors.tabs"
+    "main.processors.tabs",
+    'cms.context_processors.media',
+    'sekizai.context_processors.sekizai',
+    'django.core.context_processors.request',
 )
 
 INSTALLED_APPS = (
@@ -158,6 +169,25 @@ INSTALLED_APPS = (
     'voting',
     'captcha',
     'wainz',
+
+    'cms',      # django CMS itself
+    'mptt',     # utilities for implementing a modified pre-order traversal tree
+    'menus',    # helper for model independent hierarchical website navigation
+    'south',    # intelligent schema and data migrations
+    'sekizai',  # for javascript and css management
+
+    'cms.plugins.file',
+    'cms.plugins.flash',
+    'cms.plugins.googlemap',
+    'cms.plugins.link',
+    'cms.plugins.picture',
+#    'cms.plugins.snippet',
+    'cms.plugins.teaser',
+    'cms.plugins.text',
+    'cms.plugins.video',
+    'cms.plugins.twitter',
+
+
 )
 
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

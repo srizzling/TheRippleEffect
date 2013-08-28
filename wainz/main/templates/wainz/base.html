@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load cms_tags sekizai_tags %}
 <html>
 
   <head>
@@ -19,8 +20,8 @@
     </style>
   <script style="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script style="text/javascript" src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
-  <script style="text/javascript"> 
-    $(document).ready(function() { 
+  <script style="text/javascript">
+    $(document).ready(function() {
         $(".dropdown-toggle").dropdown()
     });
   </script>
@@ -28,9 +29,12 @@
   {% block page_specific_javascript %}
 
   {% endblock %}
+
+  {% render_block "css" %}
   </head>
 
   <body>
+    {% cms_toolbar %}
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -42,7 +46,7 @@
           </a>
           <a class="brand" href="{% url wainz.views.composite %}">WAI NZ</a>
           {% if user.is_authenticated %}
- 
+
           <div class="dropdown pull-right">
             <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
               <span class="icon-user"></span> {{ user }}
@@ -57,7 +61,7 @@
               <li><a href="{% url wainz.views.logout %}?next={{current_url}}">Sign Out</a></li>
             </ul>
 
-          </div> 
+          </div>
 
           {% else %}
           <div class="dropdown pull-right">
@@ -101,6 +105,8 @@
 
     <div class="main container background-color1" style='min-width:1100px'>
     <div>
+      {% placeholder base_content %}
+      {% block base_content %}{% endblock %}
       {% block container_content %}
 
       {% endblock %}
@@ -109,6 +115,7 @@
       &copy; 2012 WAI NZ &amp; River Dog
     </footer>
     </div>
+    {% render_block "js" %}
   </body>
 
 </html>
