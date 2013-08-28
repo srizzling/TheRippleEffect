@@ -109,7 +109,8 @@ TEMPLATE_LOADERS = (
 )
 
 CMS_TEMPLATES = (
-    ('wainz/base.html', 'Base Template'),
+    ('wainz/wainz_cms/base.html', gettext('default')),
+    ('wainz/wainz_cms/pollution.html', gettext('default')),
 )
 
 MIDDLEWARE_CLASSES = (
@@ -153,6 +154,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'sekizai.context_processors.sekizai',
     'django.core.context_processors.request',
 )
+
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',
