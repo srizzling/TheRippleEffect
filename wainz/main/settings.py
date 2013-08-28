@@ -109,8 +109,8 @@ TEMPLATE_LOADERS = (
 )
 
 CMS_TEMPLATES = (
-    ('wainz/wainz_cms/base.html', gettext('default')),
-    ('wainz/wainz_cms/pollution.html', gettext('default')),
+    ('wainz/wainz_cms/1col.html', gettext('1col')),
+    ('wainz/wainz_cms/2col.html', gettext('2col')),
 )
 
 MIDDLEWARE_CLASSES = (
