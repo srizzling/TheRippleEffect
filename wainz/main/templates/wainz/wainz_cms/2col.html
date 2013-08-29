@@ -1,6 +1,16 @@
 {% extends "wainz/wainz_cms/base.html" %}
 {% load cms_tags %}
 
-{% block base_content %}
-  {% placeholder 2col_content %}
+{% block page_content %}
+	<div class="span7">
+		{% placeholder left_column_content_section %}
+	</div>
+
+	<div class="span3">
+		{% placeholder right_column_content_section %}
+	</div>
+{% endblock %}
+
+{% block sub_content %}
+	{% placeholder sub_content_section %}
 {% endblock %}

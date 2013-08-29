@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load cms_tags sekizai_tags menu_tags %}
+<html>
+
+  	<head>
+    	<title>Water Action Initiative NZ{{title}}</title>
+    	<meta charset="utf-8">
+    	<meta name="description" content="Water Action Initiative New Zealand">
+    	<meta name="author" content="wainz">
+    	<meta http-equiv="X-UA-Compatible" content="IE=9" />
+
+    	<link rel="shortcut icon" href="{{ STATIC_URL }}images/logo.ico" />
+    	<link href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" rel="stylesheet">
+    	<link href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    	<link href="{{ STATIC_URL }}site.css" rel="stylesheet">
+  		<script style="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  		<script style="text/javascript" src="{{ STATIC_URL }}bootstrap/js/bootstrap.min.js"></script>
+  		<script style="text/javascript">
+    		$(document).ready(function() {
+	        	$(".dropdown-toggle").dropdown()
+    		});
+  		</script>
+  		<style>
+      		body {
+        		padding-top: 40px; /* 60px to make the container go all the way to the bottom of the topbar */
+      		}
+    	</style>
+
+  		{% block page_specific_javascript %}{% endblock %}
+
+  		{% render_block "css" %}
+	</head>
+
+  	<body>
+    	{% cms_toolbar %}
+		{% block base_content %}{% endblock %}
+
+		{% render_block "js" %}
+	</body>
+
+</html>

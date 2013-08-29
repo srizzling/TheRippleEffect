@@ -1,13 +1,10 @@
 {% extends "wainz/wainz_cms/base.html" %}
 {% load cms_tags %}
 
-{% block base_content %}
-	{% placeholder 1col_content or %}
+{% block page_content %}
+	{% placeholder main_content_section %}
+{% endblock %}
 
-		There is no content here yet
-
-	{% endplaceholder %}
-
-	{% placeholder 1col_content2 %}
-
+{% block sub_content %}
+	{% placeholder sub_content_section %}
 {% endblock %}

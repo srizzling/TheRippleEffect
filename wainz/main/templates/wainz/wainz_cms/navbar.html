@@ -1,0 +1,67 @@
+<div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="{% url wainz.views.composite %}">WAI NZ</a>
+          {% if user.is_authenticated %}
+
+          <div class="dropdown pull-right">
+            <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+              <span class="icon-user"></span> {{ user }}
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="{% url wainz.views.images_for_user user%}">View your images</a></li>
+              {% if user.is_staff%}
+              <li><a href="{% url wainz.views.approve_images %}">Approve Images</a></li>
+              <li><a href="{% url admin:index %}">Admin Panel</a></li>
+              {% endif %}
+              <li><a href="{% url wainz.views.logout %}?next={{current_url}}">Sign Out</a></li>
+            </ul>
+
+          </div>
+
+          {% else %}
+          <div class="dropdown pull-right">
+          <a class='login-button btn btn-success' href='https://www.wainz.org.nz{% url registration_register %}'>Register</a>
+          {% if request.is_secure %}
+          <a class="login-button dropdown-toggle btn" data-toggle="dropdown" href="#">
+              <span>Login</span>
+              <span class="caret"></span>
+            </a>
+            <div class="dropdown-menu">
+              <form action="{% url django.contrib.auth.views.login %}" method="post" >
+                {% csrf_token %}
+                <fieldset class="textbox" style="padding:10px">
+                  <input class="login textin" type="text" placeholder="Username" name="username"/>
+                  <input class="login textin" type="password" placeholder="Password" name="password"/>
+                  <input class="login btn-success" type="submit" value="Log In" />
+                </fieldset>
+                <input type="hidden" name="next" value="{% url wainz.views.composite %}" />
+              </form>
+            </div>
+          {% else %}
+          <a class="login-button btn" href="https://www.wainz.org.nz{% url django.contrib.auth.views.login %}">Login</a>
+          {% endif %}
+          </div>
+          {% endif %}
+
+          <div class='nav-collapse collapse'>
+            <ul class='nav'>
+            {% for tab in tabs %}
+              {% if tab.active %}
+                <li class="active"><a href="{{ tab.path }}">{{ tab.name }}</a></li>
+              {% else %}
+                <li><a href="{{ tab.path }}">{{ tab.name }}</a></li>
+              {% endif %}
+            {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
