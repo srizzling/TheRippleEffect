@@ -17,7 +17,7 @@ urlpatterns = patterns('',
     url(r'^media/$', 'wainz.views.media'),
     url(r'^imggallery/$', 'wainz.views.imggallery'),
     url(r'^uav/$', 'wainz.views.uav'),
-    url(r'^pollution/$', 'wainz.views.pollution'),
+#    url(r'^pollution/$', 'wainz.views.pollution'),
 
  #    url(r'^pollutioncms/', 'wainz.wainz_cms.pollution'),
     url(r'^mobileapps/$', 'wainz.views.mobileapps'),
