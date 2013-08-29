@@ -1,20 +1,6 @@
-{% load cms_tags sekizai_tags %}
-<!-- Header for content -->
-<header>
-	<div class='row-fluid background-color2'>
-		<div class='span3'>
-			<img height="150" src="{{ STATIC_URL }}images/logo2.jpg"
-				alt="Wainz Logo" />
-		</div>
-		<div class='span6'>
-			<br /> <br /> <br /> <br /> <br />
-			<hr />
-			<h2>Needs to be dynamic text!</h2>
-		</div>
-		<div class='span3'>
-			<img height="130" style="float: right; margin: 30px 30px 0px 0px;"
-				src="{{ STATIC_URL }}images/riverwatch.jpg" alt="Riverwatch Logo" />
-		</div>
-	</div>
-	<hr />
-</header>
+{% extends "wainz/wainz_cms/base_blank.html" %}
+{% load cms_tags %}
+
+{% block base_content %}
+	{% placeholder header %}
+{% endblock %}

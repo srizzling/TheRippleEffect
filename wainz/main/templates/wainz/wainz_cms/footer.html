@@ -1,5 +1,6 @@
-{% load cms_tags sekizai_tags %}
-<div>
-<footer style='margin-top: 10px;'> &copy; 2012 WAI NZ &amp;
-River Dog </footer>
-</div>
+{% extends "wainz/wainz_cms/base_blank.html" %}
+{% load cms_tags %}
+
+{% block base_content %}
+	{% placeholder footer %}
+{% endblock %}

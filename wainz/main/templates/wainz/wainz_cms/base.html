@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load cms_tags sekizai_tags %}
+{% load menu_tags %}
 <html>
 
   <head>
@@ -35,6 +36,7 @@
 
   <body>
     {% cms_toolbar %}
+    <h1>{% show_menu %}</h1>
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -153,12 +155,10 @@
 				</ul>
 			</div>
 			{% block base_content %}
-			{% placeholder base_content or %}
-				Nothing here!
-			{% endplaceholder %}
 			{% endblock %}
 
 			<!-- Footer -->
+			{% show_placeholder "footer" "footer" %}
 			<footer style='margin-top: 10px;'>
 				&copy; 2012 WAI NZ &amp; River Dog
 			</footer>
