@@ -18,6 +18,8 @@ urlpatterns = patterns('',
     url(r'^imggallery/$', 'wainz.views.imggallery'),
     url(r'^uav/$', 'wainz.views.uav'),
     url(r'^pollution/$', 'wainz.views.pollution'),
+
+ #    url(r'^pollutioncms/', 'wainz.wainz_cms.pollution'),
     url(r'^mobileapps/$', 'wainz.views.mobileapps'),
     url(r'^howtohelp/$', 'wainz.views.howtohelp'),
     url(r'^reports/$', 'wainz.views.reports'),
@@ -65,6 +67,9 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+
+    # CMS
+    url(r'^', include('cms.urls')),
 )
 
 # Registration
@@ -74,3 +79,11 @@ if settings.HAS_REGISTRATION:
     )
 
 urlpatterns += staticfiles_urlpatterns()
+
+# CMS
+if settings.DEBUG:
+    urlpatterns = patterns('',
+    url(r'^media2/(?P<path>.*)$', 'django.views.static.serve',
+        {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+    url(r'', include('django.contrib.staticfiles.urls')),
+) + urlpatterns

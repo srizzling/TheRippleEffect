@@ -65,10 +65,10 @@ def reports(request):
     return render_to_response('wainz/reports.html', {}, context_instance = RequestContext(request))
 
 def media(request):
-    return render_to_response('wainz/media.html', {}, context_instance = RequestContext(request))
+    return render_to_response('wainz/wainz_cms/1col.html', {}, context_instance = RequestContext(request))
 
 def pollution(request):
-    return render_to_response('wainz/pollution.html', {}, context_instance = RequestContext(request))
+    return render_to_response('wainz/wainz_cms/pollution.html', {}, context_instance = RequestContext(request))
 
 def uav(request):
     return render_to_response('wainz/uav.html', {}, context_instance = RequestContext(request))
@@ -176,7 +176,7 @@ def contact(request):
 def our_friends(request):
     """
     Returns the our friends page.
-    """   
+    """
     return render_to_response('wainz/our_friends.html', {}, context_instance = RequestContext(request))
 
 def image(request, img_id):
@@ -306,7 +306,7 @@ def search(request):
         * Location  | all images within one to many 'geofilters' which are a lat/lng point and radius
         * Tag       | all images matching either all, or at least one, tag, depending on the search conjunctivity
     Currently returns map points, as it's only used by Maps, but is searching images then transforming them,
-    so could easily be factored more generally (indeed, it probably should...) 
+    so could easily be factored more generally (indeed, it probably should...)
     """
     #TODO - move these into a better/more extensible location
     geofiltered = []
@@ -320,10 +320,10 @@ def search(request):
             filters.append(geofilter.Geofilter(i, request.POST["filter_"+str(i)+"_rad"], request.POST["filter_"+str(i)+"_lat"], request.POST["filter_"+str(i)+"_lng"]))
         imgs = Image.objects.filter(is_approved = True)
         for gfilter in filters:
-            search_result = search_utils.filter_location(gfilter, imgs)        
+            search_result = search_utils.filter_location(gfilter, imgs)
             geofiltered = set(geofiltered).union(search_result)
 
-    if request.POST["date_filter"] == "true":    
+    if request.POST["date_filter"] == "true":
         date_from = datetime.strptime(request.POST["from"], "%d/%m/%Y")
         date_to = datetime.strptime(request.POST["to"], "%d/%m/%Y")
         datefiltered.extend(search_utils.filter_date(date_from, date_to))
@@ -338,7 +338,7 @@ def search(request):
                 tagfiltered.append(img)
             elif(not conjunctive and any(tag_matches)):
                 tagfiltered.append(img)
-        print tagfiltered           
+        print tagfiltered
 
     latlngs = Image.objects.filter(is_approved = True)
     #TODO - refactor meeeeee
@@ -348,7 +348,7 @@ def search(request):
     if len(geofiltered) + len(datefiltered) + len(tagfiltered) == 0: latlngs = []
     respDict = {}
     points = [search_utils.to_map_point(image) for image in latlngs]
- 
+
     respDict["points"] = points
 
     resp = HttpResponse(json.dumps(respDict), "application/json", 200)
@@ -413,7 +413,7 @@ def report_details(request):
 def report_select(request):
     """
     Return the sUAVe report image selector
-    """  
+    """
     t = loader.get_template("wainz/search_form.html")
     ctx = Context({})
     search_form = t.render(ctx)

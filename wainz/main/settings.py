@@ -1,6 +1,10 @@
 # Django settings for main project.
 
-DEBUG = False
+import os
+gettext = lambda s: s
+PROJECT_PATH = os.path.abspath(os.path.dirname(__file__))
+
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = ()
@@ -12,10 +16,10 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.postgresql_psycopg2
-        #'NAME': '/vol/ecs/sites/wainz/db/sqlite3.db', # Or path to database file if using sqlite3. e302t7
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.postgresql_psycopg2
-        'NAME': 'wainz', # Or path to database file if using sqlite3. e302t7
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.postgresql_psycopg2
+        'NAME': os.path.join(PROJECT_PATH,'db/sqlite3.db'), # Or path to database file if using sqlite3. e302t7
+        #'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.postgresql_psycopg2
+        #'NAME': 'wainz', # Or path to database file if using sqlite3. e302t7
         'USER': '',                      # Not used with sqlite3. ubuntu
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -57,30 +61,36 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = os.path.join(PROJECT_PATH, "media2")
+
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = "/media2/"
+
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = '/vol/ecs/sites/wainz/main/static'
+#STATIC_ROOT = '/vol/ecs/sites/wainz/main/static'
+STATIC_ROOT = os.path.join(PROJECT_PATH, "static")
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '//www.wainz.org.nz/static/'
+#STATIC_URL = '//www.wainz.org.nz/static/'
+STATIC_URL = "/static/"
 
 # Additional locations of static files
-STATICFILES_DIRS = (    
-    #os.path.join(os.path.dirname(__file__), "static"),
+STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    # os.path.join(PROJECT_PATH, "static/uploaded-images"),
 )
+
+
 
 # List of finder classes that know how to find static files in
 # various locations.
@@ -100,6 +110,12 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
+CMS_TEMPLATES = (
+    ('wainz/wainz_cms/1col.html', gettext('1col')),
+    ('wainz/wainz_cms/2col.html', gettext('2col')),
+    ('wainz/wainz_cms/element.html', gettext('element')),
+)
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -108,15 +124,20 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'cms.middleware.multilingual.MultilingualURLMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'main.urls'
 
-# Python dotted path to the WSGI application used by Django's runserver.
+# Python dotted path to the WSGI application used by Django's runserver.*
 WSGI_APPLICATION = 'main.wsgi.application'
 
 TEMPLATE_DIRS = (
-    "/vol/ecs/sites/wainz/main/templates/",
+    #"/vol/ecs/sites/wainz/main/templates/",
+    os.path.join(PROJECT_PATH, "templates"),
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -131,8 +152,13 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
     "main.processors.current_url",
-    "main.processors.tabs"
+    "main.processors.tabs",
+    'cms.context_processors.media',
+    'sekizai.context_processors.sekizai',
+    'django.core.context_processors.request',
 )
+
+
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -149,6 +175,25 @@ INSTALLED_APPS = (
     'voting',
     'captcha',
     'wainz',
+
+    'cms',      # django CMS itself
+    'mptt',     # utilities for implementing a modified pre-order traversal tree
+    'menus',    # helper for model independent hierarchical website navigation
+    'south',    # intelligent schema and data migrations
+    'sekizai',  # for javascript and css management
+
+    'cms.plugins.file',
+    'cms.plugins.flash',
+    'cms.plugins.googlemap',
+    'cms.plugins.link',
+    'cms.plugins.picture',
+#    'cms.plugins.snippet',
+    'cms.plugins.teaser',
+    'cms.plugins.text',
+    'cms.plugins.video',
+    'cms.plugins.twitter',
+
+
 )
 
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

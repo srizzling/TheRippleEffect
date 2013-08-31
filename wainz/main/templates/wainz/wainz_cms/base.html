@@ -1,0 +1,72 @@
+{% extends "wainz/wainz_cms/root.html" %}
+{% load cms_tags menu_tags %}
+
+{% block base_content %}
+	<!--#include virtual="navbar.html" -->
+
+    <div class="main container background-color1" style='min-width:1100px'>
+    	<div>
+
+			<!-- Header -->
+			<header>
+				<div class='row-fluid background-color2'>
+					<div class='span3'>
+						<img height="150" src="{{ STATIC_URL }}images/logo2.jpg"
+							alt="Wainz Logo" />
+					</div>
+					<div class='span6'>
+						{% placeholder page_heading %}
+					</div>
+					<div class='span3'>
+						<img height="130" style="float: right; margin: 30px 30px 0px 0px;"
+							src="{{ STATIC_URL }}images/riverwatch.jpg" alt="Riverwatch Logo" />
+					</div>
+				</div>
+				<hr />
+			</header>
+
+			<!-- Left navigation bar -->
+			<div class='span2 well mainrow2'>
+				<ul class="nav nav-list">
+					<li class="nav-header" style='font-size: 14px'>Navigation</li>
+					<li><hr /></li>
+					<li><a href="{% url wainz.views.composite %}"><i
+							class="icon-home"></i> Home</a></li>
+					<li><a href="{% url wainz.views.facts %}"><i
+							class="icon-info-sign"></i> Facts</a></li>
+					<li><a href="{% url wainz.views.pollution %}"><i
+							class="icon-map-marker"></i> Pollution</a></li>
+					<!--<li><a href="{% url wainz.views.reports %}"><i class="icon-list-alt"></i> Reports</a></li>-->
+					<li><a href="{% url wainz.views.imggallery %}"><i
+							class="icon-camera"></i> Gallery</a></li>
+					<li><a href="{% url wainz.views.uav %}"><i
+							class="icon-facetime-video"></i> UAV Videos</a></li>
+					<li class="active"><a href="{% url wainz.views.media %}"><i
+							class="icon-globe icon-white"></i> Media</a></li>
+					<li><a href="{% url wainz.views.resources %}"><i
+							class="icon-eye-open"></i> Resources</a></li>
+					<li><a href="{% url wainz.views.mobileapps %}"><i
+							class="icon-signal"></i> Mobile Apps</a></li>
+					<li><a href="{% url wainz.views.howtohelp %}"><i
+							class="icon-gift"></i> How to help</a></li>
+				</ul>
+			</div>
+
+			<div>
+
+				{% block page_content %}{% endblock %}
+
+			</div>
+
+			<div>
+
+				{% block sub_content %}{% endblock %}
+
+			</div>
+
+			<!-- Footer -->
+			<footer style='margin-top: 10px;'>
+				{% show_placeholder "element" "footer" %}
+			</footer>
+
+{% endblock %}
