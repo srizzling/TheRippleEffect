@@ -11,10 +11,23 @@
       <script src="../../assets/js/html5shiv.js"></script>
       <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+      #galleria{ width: 800px; height: 600px; background: #000 }
+    </style>
   </head>
   <body>
+    <h1>Hello, world!</h1>
+    <p> hi </p>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+    <div id="galleria">
+      <img src="http://placehold.it/640x480">
+      <img src="http://placehold.it/640x480">
+      <img src="http://placehold.it/640x480">
+    </div>
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
@@ -22,14 +35,10 @@
     <script src="galleria/galleria-1.2.9.min.js"></script>
 
     <script>
-    if (Galleria) { alert("hi"); $("body").text('Galleria works') }
-
-    alert("hi");
+      Galleria.loadTheme('galleria/themes/classic/galleria.classic.min.js');
+      Galleria.run('#galleria');
     </script>
 
-
-    <h1>Hello, world!</h1>
-    <p> hi </p>
 
   </body>
 </html>
