@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+   
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script >
+      function initialize() {
+        var map_canvas = document.getElementById('map_canvas');
+        var map_options = {
+          center: new google.maps.LatLng(-42.747012,172.164001), 
+          zoom : 5,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+
+        }
+        var map = new google.maps.Map(map_canvas, map_options);
+
+      }
+      google.maps.event.addDomListener(window,'load',initialize);
+
+     </script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -12,6 +29,14 @@
       <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
     <style>
+      #map_canvas{
+
+        display: block;
+        height: 500px;
+      }
+      #map_canvas img{
+        max-width: none;
+      }
       body {
         padding-top: 80px;
         background-color:#ffffff;
@@ -42,6 +67,7 @@
     
   </head>
   <body>
+    
 
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
@@ -70,15 +96,17 @@
     <!-- Example row of columns -->
   <div class="row">
       <div id="articleimage" class="col-lg-12">
-      <img src="images/nz_map.png", width="100%">
+        <div id="map_canvas" class="span12"></div>
+      
       </div>
 
   </div>
 
   <div class="row">
           <div id="articletext" class="col-sm-12">
-          <p><a class="btn btn-default" href="#">Submit &raquo;</a></p>
-          <p><a class="btn btn-default" href="#">Something &raquo;</a></p>
+            
+          <p><center><a class="btn btn-default" href="#">Submit &raquo;</a></center></p>
+          <p><center><a class="btn btn-default" href="#">Something &raquo;</a></center></p>
         </div>
   </div>
   <hr>
