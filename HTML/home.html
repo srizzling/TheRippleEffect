@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Water Action Initiative NZ</title>
+    <title>Water Action Initiative New Zealand</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -9,9 +9,19 @@
     <!-- Theme -->
     <link href="css/bootstrap_cool_theme_ bro.min.css" rel="stylesheet" media="screen">
 
+
+    
 	<link rel="stylesheet" type="text/css" href="css/default.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<script src="js/modernizr.custom.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src ="js/modernizr.custom.js"></script>
+
+    <script type='text/javascript' src="http://eightmedia.github.io/hammer.js/dist/hammer.js"></script>
+  
+    
+    
+      <script type='text/javascript' src="http://eightmedia.github.io/hammer.js/dist/jquery.hammer.min.js"></script>
+
+
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -20,9 +30,15 @@
     <![endif]-->
     <style>
       body {
-        padding-top: 80px;
-        background-color:#ffffff;
+        margin:0;
+        padding:0 0 0 0;
+        padding-top: 40px;
+        background:#333333 url(css/img/gray_jean.png);
+        font:normal 0.9em/150% 'Arimo', arial, verdana, sans-serif;
+        text-shadow: 0px 0px 1px transparent; /* google font pixelation fix */
       }
+
+
       .starter-template {
         padding: 40px 15px;
         text-align: center;
@@ -50,26 +66,17 @@
   </head>
 
 <body class="cbp-spmenu-push">
-		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3>MENU</h3>
-			<center>
-			<img src="images/riverwatch.jpg", width="100%">
-			</center>
-			<a href="#">Home</a>
-			<a href="#">Contact</a>
-			<a href="#">About</a>
-		</nav>
-
-
 <div class="container">
     <!-- Example row of columns -->
-  <div class="row">
-<div id="articleimage" class="col-sm-12">
-      <center>
-	<h1> WAINZ </h1>
-      </center>
-	</div>
-	</div>
+        <div class="page-header">
+            <button id="showLeftPush" class="btn btn-default btn-lg">
+                <span class="glyphicon glyphicon-arrow-right"></span>
+            </button> 
+          <h1>WAINZ <small>Water Action Initiative New Zealand</small></h1>
+        </div>
+          
+	    
+	
 
   <div class="row">
       <div id="articleimage" class="col-sm-2">
@@ -112,7 +119,11 @@
 
         <div class="col-md-3">
           <center>
-		<button id="showLeftPush">Show/Hide Left Push Menu</button>
+		
+
+
+ 
+
             <p><a class="btn btn-default" href="#">Riverwatch for iPhone &raquo;</a></p>
             <p><a class="btn btn-default" href="#">Riverwatch for Android &raquo;</a></p>
           </center>
@@ -148,6 +159,17 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 
+
+    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+      
+      <center>
+      <img src="images/riverwatch.jpg", width="100%">
+      </center>
+      <a href="#">Home</a>
+      <a href="#">Contact</a>
+      <a href="#">About</a>
+    </nav>
+
   </body>
 
 <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
@@ -158,11 +180,14 @@
 				body = document.body;
 
 
+
+ var menuOpen;
 			showLeftPush.onclick = function() {
 				classie.toggle( this, 'active' );
 				classie.toggle( body, 'cbp-spmenu-push-toright' );
 				classie.toggle( menuLeft, 'cbp-spmenu-open' );
 				disableOther( 'showLeftPush' );
+      
 			};
 			
 
@@ -173,9 +198,22 @@
 				}
 			
 			}
-		classie.toggle( this, 'active' );
-		classie.toggle( body, 'cbp-spmenu-push-toright' );
-		classie.toggle( menuLeft, 'cbp-spmenu-open' );
-		disableOther( 'showLeftPush' );
+
+  Hammer(body).on("swiperight", function() {
+        classie.toggle( this, 'active' );
+        classie.toggle( body, 'cbp-spmenu-push-toright' );
+        classie.toggle( menuLeft, 'cbp-spmenu-open' );
+        disableOther( 'showLeftPush' );
+       
+    });
+
+   Hammer(body).on("swipeleft", function() {
+    document.getElementById("showLeftPush").click();
+ 
+    });
+
+
+  
+
 		</script>
 </html>
