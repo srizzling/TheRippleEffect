@@ -19,7 +19,7 @@
   <hr />
   </header>
 
-  <div class="container-fluid"> 
+  <div class="container-fluid">
     <div class='row-fluid'>
       <div class='span2 well mainrow2'>
         <ul class="nav nav-list">
@@ -27,10 +27,6 @@
         <li><hr /></li>
         <li class="active"><a href="{% url wainz.views.composite %}"><i class="icon-home icon-white"></i> Home</a></li>
         <li><a href="{% url wainz.views.facts %}"><i class="icon-info-sign"></i> Facts</a></li>
-
-<!-- <li><a href="{% url wainz.views.pollution %}"><i class="icon-map-marker"></i> Pollution</a></li>-->
-
-        <!--<li><a href="{% url wainz.views.reports %}"><i class="icon-list-alt"></i> Reports</a></li>-->
         <li><a href="{% url wainz.views.imggallery %}"><i class="icon-camera"></i> Gallery</a></li>
         <li><a href="{% url wainz.views.uav %}"><i class="icon-facetime-video"></i> UAV Videos</a></li>
         <li><a href="{% url wainz.views.media %}"><i class="icon-globe"></i> Media</a></li>
@@ -88,13 +84,13 @@
   </script>
 
   <script type="text/javascript">
-    {% autoescape off %} 
+    {% autoescape off %}
         var points = {{latLngs}}
         var markers = []
 
         var tagTypeaheadSource = [
             {% for tag in typeAheadTags %}
-                "{{tag.tag_text}}", 
+                "{{tag.tag_text}}",
             {% endfor %}
         ]
 
