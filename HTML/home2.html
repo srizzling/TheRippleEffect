@@ -15,11 +15,9 @@
 	<link rel="stylesheet" type="text/css" href="css/component.css" />
 		<script src ="js/modernizr.custom.js"></script>
 
-    <script type='text/javascript' src="http://eightmedia.github.io/hammer.js/dist/hammer.js"></script>
-  
-    
-    
+    <script type='text/javascript' src="http://eightmedia.github.io/hammer.js/dist/hammer.js"></script>    
     <script type='text/javascript' src="http://eightmedia.github.io/hammer.js/dist/jquery.hammer.min.js"></script>
+    <link rel="stylesheet" href="css/jquery.sidr.dark.css">
 
 
 
@@ -60,25 +58,50 @@
         vertical-align: middle;
       }
 
+      #mobile-header {
+        display: none;
+      }
+      
+      @media only screen and (max-width: 767px){
+        #mobile-header {
+          display: block;
+        }
+      }
+
 
     </style>
     
   </head>
 
-<body class="cbp-spmenu-push">
-<div class="container">
+<body>
+  <div class="container">
     <!-- Example row of columns -->
         <div class="page-header">
-          <div class="hidden-md"
+          
             <button id="showLeftPush" class="btn btn-default btn-lg">
-                <span class="glyphicon glyphicon-arrow-right hidden-md"></span>
+                <span class="glyphicon glyphicon-arrow-right"></span>
             </button>
-          </div>
+         
           <h1>WAINZ <small>Water Action Initiative New Zealand</small></h1>
         </div>
           
 	    
-	
+<div id="mobile-header">
+  <a id="responsive-menu-button" href="#sidr-main">Menu</a>
+</div>
+ 
+<div id="navigation">
+  <nav class="nav">
+    <ul>
+      <li><a href="#download">Download</a></li>
+      <li><a href="#getstarted">Get started</a></li>
+      <li><a href="#usage">Demos &amp; Usage</a></li>
+      <li><a href="#documentation">Documentation</a></li>
+      <li><a href="#themes">Themes</a></li>
+      <li><a href="#support">Support</a></li>
+      </ul>
+  </nav>
+</div>
 
   <div class="row">
       <div id="articleimage" class="col-sm-2">
@@ -161,61 +184,20 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
 
+    <script src="js/jquery.sidr.min.js"></script>
 
-    <nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-      
-      <center>
-      <img src="images/logo3.gif", width="100%">
-      </center>
-      <a href="#">Home</a>
-      <a href="#">Contact</a>
-      <a href="#">About</a>
-    </nav>
+    <script>
+$('#responsive-menu-button').sidr({
+name: 'sidr-main',
+source: '#navigation'
+});
+</script>
+
+
+    
 
   </body>
 
 <!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
-		<script src="js/classie.js"></script>
-		<script>
-			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),		
-				showLeftPush = document.getElementById( 'showLeftPush' ),			
-				body = document.body;
 
-
-
- var menuOpen;
-			showLeftPush.onclick = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				disableOther( 'showLeftPush' );
-      
-			};
-			
-
-			function disableOther( button ) {
-	
-				if( button !== 'showLeftPush' ) {
-					classie.toggle( showLeftPush, 'disabled' );
-				}
-			
-			}
-
-  Hammer(body).on("swiperight", function() {
-        classie.toggle( this, 'active' );
-        classie.toggle( body, 'cbp-spmenu-push-toright' );
-        classie.toggle( menuLeft, 'cbp-spmenu-open' );
-        disableOther( 'showLeftPush' );
-       
-    });
-
-   Hammer(body).on("swipeleft", function() {
-    document.getElementById("showLeftPush").click();
- 
-    });
-
-
-  
-
-		</script>
 </html>
