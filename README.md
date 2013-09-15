@@ -16,7 +16,7 @@ It presently has Ubuntu 13.04 (3.8.0-19-generic i686 - which is a 32-bit OS). Th
 a 20GB SSD disk. The server is based in San Francisco so there may be a bit of latency but it sitting effectively
 on the switch so shouldn't be too noticeable. There's a 1TB upload limit but I'd be surprised if that'll be an issue.
 
-As of the writing of this there are no apps installed and Django is not presently running on it either.
+As of the writing of this Django is not installed however Apache 2.2.22 and MySQL are (DB username/password root/engr302)
 
 Any problems with the test server please feel free to contact me:
 
