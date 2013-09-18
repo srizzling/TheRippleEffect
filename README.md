@@ -18,8 +18,8 @@ on the switch so shouldn't be too noticeable. There's a 1TB upload limit but I'd
 
 As of the writing of this Django is not installed however LAMP is.
 
-If you are lazy like me, Webmin is available too using:
-https://vm3.quinlivan.co.nz:10000 with root and engr302 as passwords again
+If you are lazy like me, Webmin and phpMyAdmin are available too using:
+https://vm3.quinlivan.co.nz:10000 (Webmin) and http://vm3.quinlivan.co.nz/phpmyadmin with root and engr302 as passwords again
 
 Any problems with the test server please feel free to contact me:
 
