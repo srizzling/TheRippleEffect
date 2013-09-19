@@ -6803,3 +6803,40 @@ td.visible-print {
     display: none !important;
   }
 }
+
+
+#nav.affix {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:1000;
+}
+
+#nav.affix li{
+   float: right; 
+}
+
+#nav {
+  width: 100%;
+  float: left;
+  margin: 0 0 3em 0;
+  padding: 0;
+  list-style: none;
+  background-color: #5F9F9F;
+}
+
+#nav li {
+  float: left; 
+}
+
+#nav li a {
+  display: block;
+  padding: 8px 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #FFF;
+}
+#nav li a:hover {
+  color: #c00;
+  background-color: #fff; }
+
