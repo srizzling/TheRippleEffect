@@ -35,7 +35,7 @@
 <script>
 $(document).ready(function(){
 	
-	$.embedly.defaults.key = 'ef3a840745504c9baf11a78eaf0d9cda';
+	$.embedly.defaults.key = 'e2c05591eb564bd68722be949794dc06';
 
 	$.ajax({
 		type: "GET",
