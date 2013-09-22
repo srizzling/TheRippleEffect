@@ -6818,15 +6818,16 @@ td.visible-print {
 
 #nav {
   width: 100%;
-  float: left;
-  margin: 0 0 3em 0;
+  margin:0 auto;
+  text-align:center;
   padding: 0;
   list-style: none;
   background-color: #5F9F9F;
 }
 
 #nav li {
-  float: left; 
+  float:left; 
+  text-align:left;
 }
 
 #nav li a {
