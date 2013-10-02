@@ -6819,7 +6819,7 @@ td.visible-print {
 #nav {
   width: 100%;
   float: left;
-  margin: 0 0 0 0;
+  margin: 10 0 0 0;
   padding: 0;
   list-style: none;
   background-color: #5F9F9F;
