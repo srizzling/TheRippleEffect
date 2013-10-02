@@ -84,9 +84,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
       <div id="galleria">
-            <img src="images/gallery-test.jpg">
-            <img src="http://placehold.it/640x480">
-            <img src="http://placehold.it/640x480">
+            <img src="images/gallery-test.jpg" title="Cows" alt="long description here">
+            <img src="http://placehold.it/640x480" title="Testing" alt="long description here">
+            <img src="http://placehold.it/640x480" title="Testing" alt="long description here">
           </div>
 
    <footer>
@@ -113,10 +113,11 @@
     $("#galleria").height(height);
     });
 
-      Galleria.loadTheme('galleria/themes/classic/galleria.classic.min.js');
+      Galleria.loadTheme('galleria/themes/classic/galleria.classic.js');
       Galleria.configure({
         transition: 'fade',
-        imageCrop: true
+        imageCrop: true,
+        showInfo: true
       });
       Galleria.run('#galleria');
     </script>
