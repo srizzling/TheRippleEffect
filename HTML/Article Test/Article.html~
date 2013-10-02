@@ -1,0 +1,93 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Samantha Lok" >
+<link rel="shortcut icon" href="../../assets/ico/favicon.png">
+
+<title>Article Resources About New Zealand Rivers</title>
+
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.css" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+
+<!-- Custom styles for this template -->
+<link href="css/carousel.css" rel="stylesheet">
+
+
+
+<script type="text/javascript" src="jquery.js">	</script>
+<script type="text/javascript" src="jquery.min.js">	</script>
+<script type="text/javascript" src="jquery.embedly.js">	</script>
+<link rel="stylesheet" href="style-article.css" />
+
+
+<script>
+$(document).ready(function(){
+	
+	$.embedly.defaults.key = 'e2c05591eb564bd68722be949794dc06';
+
+	$.ajax({
+		type: "GET",
+		url: "ArticleList.xml",
+		dataType: "xml",
+		success: function xmlParser(xml) {
+
+			$(xml).find('Article').each(function(){
+
+				var author = $(this).find('Author').text();
+				var date = $(this).find('Date').text();
+				var url = $(this).find('Link').text();
+
+				
+				$.embedly.extract(url).progress(function(data){
+
+					var template = 
+						'<div class="box">'+
+						'<div class="thumbnail_column">'+
+						'<img class="thumb" src="' + data.images[0].url + '"></img>'+
+						'</div>'+
+						'<div class="description_column">'+
+						'<a href="' + data.original_url + '"> ' + data.title + '</a>'+
+						'<p>' + author + ' (' + date + ')</p>'+
+						'<p>' + data.description + '</p>'+
+						'<img class="favicon" src="' + data.favicon_url + '">' +
+						'<a class="provider" href="' + data.provider_url + '">' 
+						+ data.provider_name + '</a>'+
+						'<p><a class="top-button" href="#">Go back top</a></p>' + 
+
+						'</div>' ;
+
+					
+					$('.embed').append(template);
+
+				});
+			});
+		}
+	});
+});
+
+
+</script>
+
+</head>
+
+
+<body>
+	<h1>List of Articles</h1>
+	<div class="embed"></div>
+
+
+
+</body>
+</html>
