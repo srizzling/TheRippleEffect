@@ -3,11 +3,13 @@
   <head>
     <title>Gallery</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="http://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
+
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
 
     <!-- Theme -->
-    <link href="http://bootswatch.com/spacelab/bootstrap.min.css" rel="stylesheet" media="screen">
+    
 
     <link href="css/carousel.css" rel="stylesheet">
 
@@ -18,58 +20,79 @@
     <![endif]-->
     <style>
       body {
-        padding-top: 50px;
         background-color:#000;
       }
-      .starter-template {
-        padding: 15px 15px;
-        text-align: center;
-      }
+ 
       #galleria{ 
         width: 100%; 
-        height: 900px;
-        background: #000 
+        height: 500px;
+        background: #000;
+        padding-top: 60px;
       }
     </style>
   </head>
   <body>
 
-  <div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">WAINZ</a>
-      </div>
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div>
-  </div>
+  <nav style="background-color: rgb(95,159,159);"class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+          
+            <a class="navbar-brand"  style="font: 400 20px/1.0 'Pacifico', Helvetica, sans-serif;" href="index.html">WAINZ</a>
+          
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="map.html">Map</a></li>
+            <li><a href="submit.html">Submit</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="contact.html">Contact</a></li>
+
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Additional Information <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                  <li><a href="pollution.html">Pollution</a></li>
+                  <li><a href="resources.html">Resources</a></li>
+                  <li><a href="howtohelp.html">How to Help?</a></li>
+                  <li><a href="facts.html">Facts</a></li>
+              </ul>
+            </li>
+           
+           
+           
+            
+          </ul>
+          
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+   
+    </nav>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <div class="container">
-      <!-- Example row of columns -->
-      <div class="row"
-        <div class="col-lg-12">
-          <div id="galleria">
-            <img src="images/gallery-test.jpg">
-            <img src="http://placehold.it/640x480">
-            <img src="http://placehold.it/640x480">
+
+      <div id="galleria">
+            <img src="images/gallery-test.jpg" title="Cows" alt="long description here">
+            <img src="http://placehold.it/640x480" title="Testing" alt="long description here">
+            <img src="http://placehold.it/640x480" title="Testing" alt="long description here">
           </div>
-        </div>
-      </div>
-      <footer>
+
+   <footer>
         <p>&copy; WAINZ 2013</p>
       </footer>
-  </div> <!-- /container -->
+
+
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery.js"></script>
@@ -79,10 +102,21 @@
     <script src="galleria/galleria-1.2.9.min.js"></script>
 
     <script>
-      Galleria.loadTheme('galleria/themes/classic/galleria.classic.min.js');
+    var height = $(window).height()-70;
+    console.log(height);
+    $("#galleria").height(height);
+
+    $(window).resize(function() {
+    var height = $(window).height()-70;
+    console.log(height);
+    $("#galleria").height(height);
+    });
+
+      Galleria.loadTheme('galleria/themes/classic/galleria.classic.js');
       Galleria.configure({
         transition: 'fade',
-        imageCrop: true
+        imageCrop: true,
+        showInfo: true
       });
       Galleria.run('#galleria');
     </script>
