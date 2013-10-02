@@ -3808,6 +3808,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   position: relative;
   display: block;
   padding: 10px 15px;
+
 }
 
 .nav > li > a:hover,
@@ -4491,31 +4492,30 @@ textarea.input-group-sm > .input-group-btn > .btn {
 
 .navbar-inverse {
   background-color: #222222;
-  border-color: #080808;
+  border-color: rgb(95,159,159);
 }
 
 .navbar-inverse .navbar-brand {
-  color: #999999;
+  color: white;
 }
 
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
-  color: #ffffff;
+  color: white;
   background-color: transparent;
 }
 
 .navbar-inverse .navbar-text {
-  color: #999999;
+  color: white;
 }
 
 .navbar-inverse .navbar-nav > li > a {
-  color: #999999;
+  color: white;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #ffffff;
-  background-color: transparent;
+  background-color: rgb(48,80,80);
 }
 
 .navbar-inverse .navbar-nav > .active > a,
@@ -6819,7 +6819,7 @@ td.visible-print {
 #nav {
   width: 100%;
   float: left;
-  margin: 0 0 0 0;
+  margin: 10 0 0 0;
   padding: 0;
   list-style: none;
   background-color: #5F9F9F;
