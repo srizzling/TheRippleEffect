@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <title>HTML5/CSS3 Threaded Comments Block</title>
+  <meta name="author" content="Jake Rocheleau">
+  <link rel="shortcut icon" href="http://www.webdesignerdepot.com/favicon.ico">
+  <link rel="icon" href="http://www.webdesignerdepot.com/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Wellfleet">
+<!--[if lt IE 9]>
+  <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+<body>
+<li>
+<div><a href="javascript:void(0);"><img src="android_robot.png" width="55" height="55" alt="pikabob photo avatar"></a></div>
+<div>
+<header><a href="javascript:void(0);">Pikabob</a> - <span>posted 6 days ago</span></header>
+<p>Listen you are going to get a kick out of this one. I've got to tell one of the funniest jokes of all time.</a></p>
+</div>
+</li>
+<li>
+  <div><a href="javascript:void(0);"><img src="/images/dark-cubes.png" width="55" height="55" alt="DarkCubes photo avatar"></a></div>
+  <div>
+    <header><a href="javascript:void(0);">DarkCubes</a> - <span>posted 1 week ago</span></header>
+    <p>Ut nec interdum libero. Sed felis lorem, venenatis sed malesuada vitae, tempor vel turpis. Mauris in dui velit, vitae mollis risus. Cras lacinia lorem sit amet augue mattis vel cursus enim laoreet. Vestibulum faucibus scelerisque nisi vel sodales. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pellentesque massa ac justo tempor eu pretium massa accumsan. In pharetra mattis mi et ultricies. Nunc vel eleifend augue. Donec venenatis egestas iaculis.</p>
+  </div>
+  <ul>
+    <li>
+      <div><a href="javascript:void(0);"><img src="images/pig.png" width="55" height="55" alt="Sir_Pig photo avatar"></a></div>
+      <div>
+      <header><a href="javascript:void(0);">Sir_Pig</a> - <span>posted 1 day ago</span></header>
+      <p>Sed felis lorem, venenatis sed malesuada vitae, tempor vel turpis. Mauris in dui velit, vitae mollis risus.</p>
+      <p>Morbi id neque nisl, nec fringilla lorem. Duis molestie sodales leo a blandit. Mauris sit amet ultricies libero. Etiam quis diam in lacus molestie fermentum non vel quam.</p>
+      </div> 
+    </li>
+  </ul>
+</li>
+</body>
+<style>
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html { height: 101%; }
+body { background: #e3e0ef url('images/bg.png'); font-size: 62.5%; line-height: 1; font-family: Arial, sans-serif; padding-bottom: 65px; }
+
+::selection { background: #d7d0f3; }
+::-moz-selection { background: #d7d0f3; }
+::-webkit-selection { background: #d7d0f3; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+ol, ul { list-style: none; }
+
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+strong { font-weight: bold; } 
+
+table { border-collapse: collapse; border-spacing: 0; }
+img { border: 0; max-width: 100%; }
+h1 { font-family: 'Wellfleet', 'Trebuchet MS', Tahoma, Arial, sans-serif; font-size: 2.85em; line-height: 1.6em; font-weight: normal; color: #756f8b; text-shadow: 0px 1px 1px #fff; margin-bottom: 21px; }
+
+p { font-family: Arial, Geneva, Verdana, sans-serif; font-size: 1.3em; line-height: 1.42em; margin-bottom: 12px; font-weight: normal; color: #656565; }
+
+a { color: #896dc6; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* page layout structure */ 
+#w { display: block; width: 700px; margin: 0 auto; padding-top: 35px; }
+
+#container { 
+  display: block; 
+  width: 100%; 
+  background: #fff; 
+  padding: 14px 20px; 
+  -webkit-border-radius: 4px; 
+  -moz-border-radius: 4px; 
+  border-radius: 4px; 
+  -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+#comments { display: block; }
+
+#comments .cmmnt, ul .cmmnt, ul ul .cmmnt { display: block; position: relative; padding-left: 65px; border-top: 1px solid #ddd; }
+
+#comments .cmmnt .avatar  { position: absolute; top: 8px; left: 0; }
+#comments .cmmnt .avatar img { 
+  -webkit-border-radius: 3px; 
+  -moz-border-radius: 3px; 
+  border-radius: 3px; 
+  -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.44);
+  -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.44);
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.44);
+  -webkit-transition: all 0.4s linear;
+  -moz-transition: all 0.4s linear;
+  -ms-transition: all 0.4s linear;
+  -o-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+}
+#comments .cmmnt .cmmnt-content { padding: 0px 3px; padding-bottom: 12px; padding-top: 8px; }
+#comments .cmmnt .cmmnt-content header { font-size: 1.3em; display: block; margin-bottom: 8px; }
+#comments .cmmnt .cmmnt-content header .pubdate { color: #777; }
+#comments .cmmnt .cmmnt-content header .userlink { font-weight: bold; } 
+#comments .cmmnt .replies { margin-bottom: 7px; }
+
+#comments .cmmnt .avatar a:hover img { opacity: 0.77; }
