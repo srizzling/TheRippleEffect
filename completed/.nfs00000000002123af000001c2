@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+<link href="http://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
+   
+
+     <script src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>
+  <script type="text/javascript" src="js/map-v6.js"></script>
+   <script type="text/javascript" src="js/map-coords.js"></script>
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../../assets/js/html5shiv.js"></script>
+      <script src="../../assets/js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+    #wrapper { position: relative; }
+    #map_controls { position: absolute; width: 100px; left: 5px; top: 5px;}
+    </style>
+    <style>
+      #map_canvas{
+
+        display: block;
+        height: 500px;
+      }
+      #map_canvas img{
+        max-width: none;
+      }
+      body {
+        padding-top: 80px;
+        background-color:#ffffff;
+      }
+      .starter-template {
+        padding: 40px 15px;
+        text-align: center;
+      }
+      img {
+        /* Responsive images (ensure images don't scale beyond their parents) */
+        max-width: 160px;
+        /* Part 1: Set a maxium relative to the parent */
+        width: auto\9;
+        /* IE7-8 need help adjusting responsive images */
+        height: auto;
+        /* Part 2: Scale the height according to the width, otherwise you get stretching */
+        vertical-align: middle;
+
+        border: 0;
+      }
+      .centered {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+
+    </style>
+    
+  </head>
+  <body>
+   <nav style="background-color: rgb(95, 159, 159);"
+		class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+
+				<a class="navbar-brand"
+					style="font: 400 20px/1.0 'Pacifico', Helvetica, sans-serif;"
+					href="index.html">WAINZ</a>
+
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="map.html">Map</a></li>
+					<li><a href="submit.html">Submit</a></li>
+					<li><a href="gallery.html">Gallery</a></li>
+					<li><a href="media.html">Media</a></li>
+					<li><a href="contact.html">Contact</a></li>
+
+
+
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"> Information <b
+							class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="pollution.html">Pollution</a></li>
+							<li><a href="resources.html">Resources</a></li>
+							<li><a href="howtohelp.html">How to Help?</a></li>
+							<li><a href="facts.html">Facts</a></li>
+						</ul></li>
+
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown"> Login <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href='https://www.wainz.org.nz/accounts/register/'><span
+									class="glyphicon glyphicon-user" style="padding-right: 20px"></span>
+									Register</a></li>
+							<li><a href="https://www.wainz.org.nz/accounts/login/">
+									<span class="glyphicon glyphicon-log-in"
+									style="padding-right: 20px"></span> Login
+							</a></li>
+						</ul></li>
+				</ul>
+
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container -->
+	</nav>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+        <div id="wrapper">
+    <div id="map_canvas"></div>
+    <div id="map_controls">
+      <form onchange="RegionSelector()">
+        <!-- <label for="region">Select a region: </label> -->
+        <select name="region" id="region" size="1">
+          <option value="None">None</option>
+          <option value="Northland">Northland</option>
+          <option value="Auckland">Auckland</option>
+          <option value="Waikato">Waikato</option>
+          <option value="West Coast">West Coast</option>
+          <option value="Bay of Plenty">Bay of Plenty</option>
+          <option value="Canterbury">Canterbury</option>
+          <option value="Gisborne">Gisborne</option>
+          <option value="Otago">Otago</option>
+          <option value="Southland">Southland</option>
+          <option value="Hawke's Bay">Hawke's Bay</option>
+          <option value="Tasman">Tasman</option>
+          <option value="Taranaki">Taranaki</option>
+          <option value="Manawatu-Wanganui">Manawatu-Wanganui</option>
+          <option value="Nelson">Nelson</option>
+          <option value="Wellington">Wellington</option>
+          <option value="Marlborough">Marlborough</option>
+          <option value="All">Show All</option>
+        </select>
+        <!-- <input type="button" id="names" name="names" value="Town Names  " onclick="ShowTownNames()" style="background-color:#c00;"/> -->
+        <input type="button" id="rivers" name="rivers" value="Display Rivers" onclick="DisplayRivers()"/>
+      </form>
+    </div>
+</div>
+
+<hr>
+
+  <footer>
+    <p>&copy; WAINZ 2013</p>
+  </footer>
+</div> <!-- /container -->
+
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+  </body>
+</html>

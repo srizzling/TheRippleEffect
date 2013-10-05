@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>reNEWEL - map</title>
+	<style>
+      #map_canvas {
+        position: absolute;
+		width: 620px;
+        height: 620px;
+		margin: 0 auto;
+      }
+    </style>
+	<style>
+		#wrapper { position: relative; }
+		#map_controls { position: absolute; width: 100px; left: 5px; top: 5px;}
+	</style>
+   <script src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>
+   <script type="text/javascript" src="./map-v6.js"></script>
+   <script type="text/javascript" src="./map-coords.js"></script>
+  </head>
+  <body bgcolor="#4d4d4d">
+		<div id="wrapper">
+		<div id="map_canvas"></div>
+		<div id="map_controls">
+			<form onchange="RegionSelector()">
+				<!-- <label for="region">Select a region: </label> -->
+				<select name="region" id="region" size="1">
+					<option value="None">None</option>
+					<option value="Northland">Northland</option>
+					<option value="Auckland">Auckland</option>
+					<option value="Waikato">Waikato</option>
+					<option value="West Coast">West Coast</option>
+					<option value="Bay of Plenty">Bay of Plenty</option>
+					<option value="Canterbury">Canterbury</option>
+					<option value="Gisborne">Gisborne</option>
+					<option value="Otago">Otago</option>
+					<option value="Southland">Southland</option>
+					<option value="Hawke's Bay">Hawke's Bay</option>
+					<option value="Tasman">Tasman</option>
+					<option value="Taranaki">Taranaki</option>
+					<option value="Manawatu-Wanganui">Manawatu-Wanganui</option>
+					<option value="Nelson">Nelson</option>
+					<option value="Wellington">Wellington</option>
+					<option value="Marlborough">Marlborough</option>
+					<option value="All">Show All</option>
+				</select>
+				<!-- <input type="button" id="names" name="names" value="Town Names  " onclick="ShowTownNames()" style="background-color:#c00;"/> -->
+				<input type="button" id="rivers" name="rivers" value="Display Rivers" onclick="DisplayRivers()"/>
+			</form>
+		</div>
+	</div>
+  </body>
+</html>
