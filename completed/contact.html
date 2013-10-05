@@ -14,17 +14,15 @@
 <link href="css/bootstrap.css" rel="stylesheet">
 
 <div id="fb-root"></div>
-<script>
-						(function(d, s, id) {
-							var js, fjs = d.getElementsByTagName(s)[0];
-							if (d.getElementById(id))
-								return;
-							js = d.createElement(s);
-							js.id = id;
-							js.src="https://connect.facebook.net/en_US/all.js";
-							fjs.parentNode.insertBefore(js, fjs);
-						}(document, 'script', 'facebook-jssdk'));
-					</script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=374898192643009";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 </head>
 
 <body>
@@ -131,16 +129,14 @@
 					<h4>Follow us on Twitter!</h4>
 					<br />
 					<p>
-						<a href="https://twitter.com/Wai_NZ" class="twitter-follow-button"
-							data-show-count="false">Follow @Wai_NZ</a>
+					<a href="https://twitter.com/Wai_NZ" class="twitter-follow-button" data-show-count="false">Follow @Wai_NZ</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 					</p>
 					<hr />
 					<h4>Check us out on Facebook!</h4>
 					<br />
 					<p>
-					<div class="fb-recommendations-bar"
-						data-site="http://www.facebook.com/WaiNewZealand"
-						data-read-time="30" data-side="left" data-action="like"></div>
+					<div class="fb-like" data-href="https://www.facebook.com/WaiNewZealand" data-width="30" data-height="30" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="true" data-send="false"></div>
 					<hr />
 				</div>
 				<div class="col-sm-12">
@@ -273,7 +269,7 @@
 	<!-- Placed at the end of the document so the pages load faster -->
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.js"></script>
-	<script src="js/modern-business.js"></script>
+	
 
 </body>
 </html>

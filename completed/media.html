@@ -1,0 +1,247 @@
+<html lang="en">
+<!DOCTYPE html>
+
+<head>
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+
+<link rel="shortcut icon" href="../../assets/ico/favicon.png">
+        <link href="http://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
+
+
+<title>Media Articles - WAINZ</title>
+
+
+<script type="text/javascript" src="js/jquery.js">	</script>
+<script type="text/javascript" src="js/jquery.min.js">	</script>
+<script type="text/javascript" src="js/jquery.embedly.js">	</script>
+<script type="text/javascript" src="js/bootstrap.js">	</script>
+
+
+
+<link rel="stylesheet" href="css/style-article.css" />
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/carousel.css" rel="stylesheet">
+
+
+<script>
+$(document).ready(function(){
+	
+	$.embedly.defaults.key = 'ef3a840745504c9baf11a78eaf0d9cda';
+
+	$.ajax({
+		type: "GET",
+		url: "ArticleList.xml",
+		dataType: "xml",
+		success: function xmlParser(xml) {
+			
+			var start = 0;
+			var noPageToView = 10;
+			var $Article = $(xml).find('Article');
+			var totalArt = $Article.length;
+			var totalPage =  Math.ceil(totalArt / noPageToView);
+			console.log(totalPage);
+
+			$('#pagination')
+
+			function readTags(index, value){
+
+				var author = $(this).find('Author').text();
+				var date = $(this).find('Date').text();
+				var url = $(this).find('Link').text();	
+			
+				$.embedly.extract(url).progress(function(data){
+
+					var template = 
+						'<div class="row">' +
+							'<div class="col-md-4">' +
+								'<img class="img-responsive" src="' + data.images[0].url + '"></a>' +
+							'</div>' + 
+
+		     		   		'<div class="col-md-8">' + 
+								'<h3><a href="' + data.original_url + '"> ' + data.title + '</a></h3>' +
+								'<h4>' + author + ' (' + date + ')</h4>' +
+								'<p>' + data.description + '</p>' +
+								'<img class="favicon" src="' + data.favicon_url + '">' +
+								'<a class="provider" href="' + data.provider_url + '">' 
+								+ data.provider_name + '</a>'+
+								
+							'</div>' +
+
+		      			'</div>' +
+
+		      			'<hr>';
+
+					$("#contents").append(template);
+					
+				});
+			}
+
+
+			if(start == 0){
+				var $ArticlePagi = $Article.slice(start,  start + noPageToView);
+				$('#contents').html('');
+				$ArticlePagi.each(readTags);
+			}
+
+			$("#next").click(function(){
+				if(start  + noPageToView <= totalArt){
+					start += noPageToView;
+					var $ArticlePagi = $Article.slice(start,  start + noPageToView);
+					$('#contents').html('');
+					$ArticlePagi.each(readTags);
+				}
+				else {
+					alert("end of page");
+				}
+
+			});
+
+			$("#previous").click(function(){
+				if(start - noPageToView > -1){
+					start -= noPageToView;
+					var $ArticlePagi = $Article.slice(start,  start + noPageToView);
+					$('#contents').html('');
+					$ArticlePagi.each(readTags);
+				}
+
+				else{
+					alert("start of page");
+				}
+
+			});
+
+			
+
+		}		
+	});
+});
+
+
+</script>
+
+</head>
+
+  <body>
+
+<!-- ------------------------------Navigation Bar------------------------------------ -->
+	 <nav style="background-color: rgb(95,159,159);"class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
+
+            <a class="navbar-brand"  style="font: 400 20px/1.0 'Pacifico', Helvetica, sans-serif;" href="index.html">WAINZ</a>
+
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="submit.html">Submit</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="contact.html">Contact</a></li>
+
+
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Additional Information <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                  <li><a href="pollution.html">Pollution</a></li>
+                  <li><a href="resources.html">Resources</a></li>
+                  <li><a href="howtohelp.html">How to Help?</a></li>
+                  <li><a href="facts.html">Facts</a></li>
+                  </ul>
+
+            </li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Login <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+           		 <li><a href='https://www.wainz.org.nz/accounts/register/'><span class="glyphicon glyphicon-user" style="padding-right:20px"></span> Register</a></li>
+          		 <li><a href="https://www.wainz.org.nz/accounts/login/"> <span class="glyphicon glyphicon-log-in" style="padding-right:20px"></span> Login</a></li>
+				</ul>
+            </li>
+
+          </ul>
+
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    
+    </nav>
+
+<!-- -------------------All contents starts below here------------------------------------ -->
+
+    <div class="container" style="padding-top: 5%">
+
+      <div class="row">
+
+        <div class="col-lg-12">
+          <h1 class="page-header">Media <small>Interesting Media Articles</small></h1>
+        </div>
+
+      </div>
+  </div>
+
+	<!-- -------------------All contents starts below here------------------------------------ -->
+
+
+<div class="container" id="contents">
+
+
+      	<!-- -------------------The Articles are placed here------------------------------------ -->
+
+</div>
+
+      
+<!-- --------------------------Number of pages---------------------------- -->
+
+
+		<div class="container" id="page">
+	
+	      <div class="row text-center">
+        
+        <div class="col-lg-12">
+          <ul class="pagination">
+            <li id="previous"><a href="#">&laquo; Previous</a></li>
+            <li id="next"><a href="#">Next &raquo;</a></li>
+          </ul>        
+        </div>
+
+      </div>
+
+   	</div>
+   		 
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
