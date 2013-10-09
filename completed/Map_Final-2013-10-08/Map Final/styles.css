@@ -1,0 +1,22 @@
+body {
+    background-color: #4d4d4d;
+}
+
+#map_canvas {
+  position: absolute;
+  width: 900px;
+  height: 900px; <!-- 620 -->
+  margin: 0 auto;
+}
+
+#wrapper { position: relative; }
+#map_controls { position: absolute; width: 100px; left: 5px; top: 5px;}
+
+#infoImage{
+  width:100%;
+  max-width:300px;
+}
+#infoDescription{
+  width:100%;
+  max-width:300px;
+}
