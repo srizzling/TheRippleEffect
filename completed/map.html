@@ -8,9 +8,7 @@
 <link href="http://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
    
 
-     <script src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>
-  <script type="text/javascript" src="js/map-v6.js"></script>
-   <script type="text/javascript" src="js/map-coords.js"></script>
+
 
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -124,13 +122,13 @@
 
 
 
-      <div id="wrapper">
+    <div id="wrapper">
     <div id="map_canvas"></div>
     <div id="map_controls">
-      <form onchange="RegionSelector()">
+      <form onchange="regionSelector()">
         <!-- <label for="region">Select a region: </label> -->
         <select name="region" id="region" size="1">
-          <option value="None">None</option>
+          <option value="None">Hide All</option>
           <option value="Northland">Northland</option>
           <option value="Auckland">Auckland</option>
           <option value="Waikato">Waikato</option>
@@ -150,10 +148,10 @@
           <option value="All">Show All</option>
         </select>
         <!-- <input type="button" id="names" name="names" value="Town Names  " onclick="ShowTownNames()" style="background-color:#c00;"/> -->
-        <input type="button" id="rivers" name="rivers" value="Display Rivers" onclick="DisplayRivers()"/>
+        <input type="button" id="rivers" name="rivers" value="Show Waterways" onclick="displayRivers()"/>
       </form>
     </div>
-</div>
+  </div>
 
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -161,6 +159,12 @@
 
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+
+  <script src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>
+  <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/maplabel/src/maplabel-compiled.js"></script>
+
+  <script type="text/javascript" src="js/map-v9.5-demonstration.min.js"></script>
+  <script type="text/javascript" src="js/map-coordsYUI.js"></script>
 
     <script>
       var height = $(window).height()-50;
